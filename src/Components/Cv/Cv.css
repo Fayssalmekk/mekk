@@ -1,0 +1,22 @@
+.name {
+    color: darkorchid;
+    font-size: 37px;
+    font-weight: 700;
+}
+.cv {
+    margin-top: 100px;
+}
+
+
+
+
+@media (max-width: 1000px){
+    .name {
+        font-size: 30px;
+    }
+    .job {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+

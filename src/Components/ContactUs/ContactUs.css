@@ -1,0 +1,134 @@
+
+.about {
+  margin-top: 50px;
+}
+.title2{
+	margin-top: 140px;
+	font-size: 30px;
+	font-weight: 300;
+  font-family: exo-bold;
+	letter-spacing: 0.5px;
+	color:#0b2e7ee3;
+  }
+
+.card1 {
+  background:rgba(244, 248, 255, 0.8);
+  border-radius: 30px;
+  padding: 150px 50px 0 50px;
+  margin-bottom: 100px;
+}
+
+.title2::after{
+	content: '';
+	background: #1E90FF;
+	height: 5px;
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	transform: translateY(8px);
+}
+
+#contact{
+    padding: 50px 10px;
+  }
+  .contact-info h3{
+    font-size: 22px;
+    color: #000;
+    font-weight: 500;
+    margin: 0 0 40px;
+  }
+  .contact-info-item{
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 30px;
+  }
+  .contact-info-item i{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #1E90FF;
+    border: 1px solid #1E90FF;
+    text-align: center;
+    line-height: 38px;
+  }
+  .contact-info-item h4{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 0 8px;
+    color: #000;
+  }
+  .contact-info-item p {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 26px;
+    color: grey;
+  }
+  .contact-form .form-group{
+    margin-bottom: 25px;
+  }
+  .contact-form .form-control{
+    height: 52px;
+    border: 1 solid transparent;
+    box-shadow: .5rem .5rem 0.3rem rgba(0,0,0,0.2);
+    border-radius: 30px;
+    padding: 0 24px;
+    color: #000;
+    transition: all 0.5s ease;
+  }
+  .contact-form textarea.form-control{
+    height: 140px;
+    padding-top:12px; 
+  }
+  .contact-form .form-control:focus{
+    border-color: #1E90FF;
+  }
+  .contact-form .btn{
+    background-color: #1E90FF;
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border-radius: 30px;
+    padding: 10px 20px;
+  }
+
+  .socialmediaIcons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-end;
+}
+.socialmedia{
+    width: 50px;
+    float: right;
+    margin-right: 15px;
+}
+
+.icons {
+  font-size: 25px;
+  margin-left: -20px;
+  color:#0b2e7ee3;
+}
+
+.aboutustitle {
+  font-size: 35px;
+  font-family: exo-bold;
+  color: #0b2e7ee3;
+}
+.aboutusp{
+  font-size: 17px;
+  padding-top: 10px;
+  font-family: exo-regular;
+  color: rgb(37, 37, 37);
+ 
+
+}
+.p2 {
+  
+  margin-top: 5px;
+}
