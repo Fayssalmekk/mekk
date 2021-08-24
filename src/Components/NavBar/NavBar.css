@@ -66,3 +66,28 @@
     opacity: 100%;
   }
 }
+
+@media(max-width:600px){
+  .ico{
+   
+    font-size: 16px;
+  }
+  .link{
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+}
+
+@media(max-width:400px){
+  .ico{
+    
+    font-size: 12px;
+  }
+  .link{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+}
+

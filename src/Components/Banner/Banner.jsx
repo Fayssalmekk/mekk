@@ -1,31 +1,23 @@
 import "./Banner.css";
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+
 import mainLogo from "../../Assets/mainLogo.png";
-import head1 from "../../Assets/head1.png";
-import content from '../../Contents/HomeContent'
 
 
 
 
 class Banner extends Component {
-    constructor(props) {
-        super(props);
-        this.Language = this.props.language
-    }
-    componentDidMount() {
-        window.scrollTo(0, 0);
-    }
+    
     render() {
         return (
             <div>
                 <div className="banner">
                     <div className="container ">
                         <div className="text-center logo ">
-                            <img className="img-fluid" src={mainLogo} />
+                            <img className="img-fluid logo" src={mainLogo} />
                             <h1 className="txt1">Welcome To My Portfolio</h1>
 
-                            <div className="row dakchi text-center ">
+                            <div className="row dakchi  ">
                                 <div className="txt2 " id="typing">I AM <span>FAYSSAL EL MEKKAOUI.</span></div>
                                 <div className="txt2 " id="crow">|</div>
                             </div>

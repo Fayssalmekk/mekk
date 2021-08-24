@@ -1,0 +1,102 @@
+#root {
+	text-align: center;
+	
+	
+  }
+
+  .App {
+	  margin-top: 100px;
+  }
+  
+  .image-card {
+	border-radius: 20px;  
+	width: 350px;
+	margin: 10px;
+	height: 350px;
+	object-fit: cover;
+  }
+
+  
+  
+  .lightbox-img {
+	height: 70%;
+	max-width: 100%;
+	object-fit: cover;
+  }
+  
+  #lightbox {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  
+  @media(max-width:1000px) {
+	.image-card{
+		width: 300px;
+		height: 300px;
+		
+		
+	}
+	.lightbox-img {
+	  height: 350px;
+	  
+	}
+}
+
+@media(max-width:600px) {
+	.image-card{
+		width: 250px;
+		height: 250px;
+		
+	}
+	.lightbox-img {
+	  height: 200px;
+	  
+	}
+}
+  
+  
+  
+  
+  
+  /*Completely optional styling that has nothing to do with the lightbox*/
+  button {
+	color: white;
+	border: 2px solid #a167da;
+	background-color: #a167da;
+	font-size: 1.2rem;
+  }
+  
+  a {
+	color: #7a4baa;
+  }
+  
+  h1 {
+	color: #7a4baa;
+  }
+  
+  p {
+	margin-bottom: 1.5rem;
+	font-size: .9rem;
+  }
+  
+  img:hover, button:hover {
+	cursor: pointer;
+	filter: brightness(1.1);
+	filter: contrast(1.1);
+	filter: sepia(0.6);
+	
+  }
+  
+  body {
+	background-color: rgba(196, 155, 237, 0.45);
+  }
+  
+  
