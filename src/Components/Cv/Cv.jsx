@@ -91,7 +91,7 @@ class Cv extends React.Component {
                                                         explicabo laborum blanditiis possimus maiores minima saepe
                                                         quos vero quam, commodi quasi repudiandae minus sit?
                                                     </p>
-                                                    <a  className="
+                                                    <a href="https://www.google.com" className="
                         stretched-link
                         text-capitalize text-decoration-none
                       "><i class="bi bi-link-45deg me-1"></i>Find out more</a>
@@ -143,7 +143,7 @@ class Cv extends React.Component {
                                             </div>
                                             <div className="d-flex align-items-center justify-content-center mb-2">
                                                 <i className="faa fa fa-phone"></i>
-                                                <a  className="ms-2 ml-2 text-decoration-none text-dark">+212 6 37 21 20 54</a>
+                                                <a href="https://www.google.com"  className="ms-2 ml-2 text-decoration-none text-dark">+212 6 37 21 20 54</a>
                                             </div>
                                         </div>
                                     </div>

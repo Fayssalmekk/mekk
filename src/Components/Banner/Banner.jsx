@@ -14,7 +14,7 @@ class Banner extends Component {
                 <div className="banner">
                     <div className="container ">
                         <div className="text-center logo ">
-                            <img className="img-fluid logo" src={mainLogo} />
+                            <img className="img-fluid logo" alt="profil" src={mainLogo} />
                             <h1 className="txt1">Welcome To My Portfolio</h1>
 
                             <div className="row dakchi  ">
