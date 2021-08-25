@@ -1,16 +1,20 @@
 import React from 'react';
 import './Gall.css';
-import ui10 from '../../Assets/ui10.jpg'
-import ui2 from '../../Assets/ui2.jpg'
-import ui3 from '../../Assets/ui3.jpg'
-import ui4 from '../../Assets/ui4.png'
-import ui5 from '../../Assets/ui5.png'
-import ui6 from '../../Assets/ui6.png'
-import ui7 from '../../Assets/ui7.jpg'
+import fly1 from '../../Assets/fly1.jpg'
+import fly2 from '../../Assets/fly2.jpg'
+import  fly3 from '../../Assets/fly3.jpg'
+import  fly4 from '../../Assets/fly4.jpg'
+import  fly5 from '../../Assets/fly5.jpg'
+import  fly6 from '../../Assets/fly6.jpg'
+import  fly7 from '../../Assets/fly7.jpg'
 
-import ui8 from '../../Assets/ui8.jpg'
-import ui9 from '../../Assets/ui9.jpg'
-
+import  fly8 from '../../Assets/fly8.jpg'
+import  fly9 from '../../Assets/fly9.jpg'
+import  fly10 from '../../Assets/fly10.jpg'
+import  fly11 from '../../Assets/fly11.jpg'
+import  fly12 from '../../Assets/fly12.jpg'
+import  fly13 from '../../Assets/fly13.jpg'
+import  fly14 from '../../Assets/fly14.jpg'
 
 
 const { useState } = React;
@@ -23,13 +27,12 @@ const { useState } = React;
  
 
 
-
 //IMAGE ARRAY
-const images = [ui2,ui3,ui4,ui5,ui6,ui7,ui8,ui9,ui10];
+const images = [fly1,fly2,fly3,fly4,fly5,fly6,fly7,fly8,fly9,fly10,fly11,fly12,fly13,fly14];
 
 
 //MAIN APP COMPONENT
-function Gall() {
+function Gall2() {
   return (
     <div id className="App container">
      
@@ -105,4 +108,4 @@ function ImageGallery() {
   );
 }
 
-export default Gall ;
+export default Gall2 ;

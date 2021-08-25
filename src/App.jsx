@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Banner from './Components/Banner/Banner';
 import NavBar2 from './Components/NavBar/NavBar';
+import Gall2 from './Components/Gall/Gall2';
 
 
 
@@ -48,6 +49,7 @@ class App extends Component {
               
               <Banner />
               <NavBar2/>
+              <Gall2/>
               
             </Route>
             <Route exact path="/artworks">

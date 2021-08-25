@@ -6,7 +6,12 @@
 
   .App {
 	  margin-top: 100px;
+	  animation: move01 0.6s linear ;
   }
+
+  @keyframes move01	{	
+	0%	{opacity:0%;	}
+  100%	{opacity: 100%;	} }
   
   .image-card {
 	border-radius: 20px;  
@@ -57,7 +62,8 @@
 		
 	}
 	.lightbox-img {
-	  height: 200px;
+	  height: 170px;
+	  
 	  
 	}
 }
@@ -89,9 +95,7 @@
   
   img:hover, button:hover {
 	cursor: pointer;
-	filter: brightness(1.1);
-	filter: contrast(1.1);
-	filter: sepia(0.6);
+	
 	
   }
   
