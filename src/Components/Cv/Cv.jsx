@@ -15,7 +15,7 @@ class Cv extends React.Component {
                 <body className="mt-3 bg-light">
                     <div className="container card bg-white border-0 mb-5 shadow-sm">
                         <div className=" card-body d-flex align-items-center justify-content-start p-5 flex-sm-column flex-column flex-md-row">
-                            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGEJHHZLNITQQ/profile-displayphoto-shrink_800_800/0/1595289959603?e=1635379200&v=beta&t=20bmbfivQZxci1SG9PyCit6OL-m2sESlR8uyLCT6y8U" className="rounded-circle bg-secondary mb-sm-4 mb-4 mb-md-0" alt="profile" width="200" />
+                            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGEJHHZLNITQQ/profile-displayphoto-shrink_800_800/0/1595289959603?e=1635379200&v=beta&t=20bmbfivQZxci1SG9PyCit6OL-m2sESlR8uyLCT6y8U" className="rounded-circle bg-secondary mb-sm-4 mb-4 mb-md-0"  alt="profil" width="200" />
                             <div className="
             d-flex
             flex-column
@@ -48,7 +48,7 @@ class Cv extends React.Component {
                                 </div>
                             </div>
                             <div className="flex-fill d-flex  justify-content-md-end">
-                                <img src={Logo2} className=""/>
+                                <img src={Logo2} alt="Logo" className=""/>
                                     
                             </div>
 
@@ -91,7 +91,7 @@ class Cv extends React.Component {
                                                         explicabo laborum blanditiis possimus maiores minima saepe
                                                         quos vero quam, commodi quasi repudiandae minus sit?
                                                     </p>
-                                                    <a href="" className="
+                                                    <a  className="
                         stretched-link
                         text-capitalize text-decoration-none
                       "><i class="bi bi-link-45deg me-1"></i>Find out more</a>
@@ -143,7 +143,7 @@ class Cv extends React.Component {
                                             </div>
                                             <div className="d-flex align-items-center justify-content-center mb-2">
                                                 <i className="faa fa fa-phone"></i>
-                                                <a href="#" className="ms-2 ml-2 text-decoration-none text-dark">+212 6 37 21 20 54</a>
+                                                <a  className="ms-2 ml-2 text-decoration-none text-dark">+212 6 37 21 20 54</a>
                                             </div>
                                         </div>
                                     </div>

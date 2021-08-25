@@ -52,7 +52,7 @@ function ImageGallery() {
   
   //looping through our images array to create img elements
   const imageCards = images.map((image) => (
-    <img className="image-card " onClick={() => showImage(image)} src={image} />
+    <img className="image-card " alt="profil" onClick={() => showImage(image)} src={image} />
   ));
 
   //function to show a specific image in the lightbox, amd make lightbox visible
@@ -99,7 +99,7 @@ function ImageGallery() {
         lightboxDisplay ? 
         <div id="lightbox" className="lightbox" onClick={hideLightBox}>
           <button onClick={showPrev}> &larr; </button>
-          <img className="lightbox-img" id="lightbox-img" src={imageToShow}></img>
+          <img className="lightbox-img" id="lightbox-img" alt="profil" src={imageToShow}></img>
           <button onClick={showNext}> &rarr; </button>
         </div>
        : ""
