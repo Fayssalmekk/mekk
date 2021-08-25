@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mekk/static/css/main.f62d7ec1.chunk.css",
-    "main.js": "/mekk/static/js/main.09055a30.chunk.js",
-    "main.js.map": "/mekk/static/js/main.09055a30.chunk.js.map",
-    "runtime-main.js": "/mekk/static/js/runtime-main.41fbf263.js",
-    "runtime-main.js.map": "/mekk/static/js/runtime-main.41fbf263.js.map",
-    "static/js/2.8055ca46.chunk.js": "/mekk/static/js/2.8055ca46.chunk.js",
-    "static/js/2.8055ca46.chunk.js.map": "/mekk/static/js/2.8055ca46.chunk.js.map",
+    "main.js": "/mekk/static/js/main.38954a59.chunk.js",
+    "main.js.map": "/mekk/static/js/main.38954a59.chunk.js.map",
+    "runtime-main.js": "/mekk/static/js/runtime-main.2f329ff7.js",
+    "runtime-main.js.map": "/mekk/static/js/runtime-main.2f329ff7.js.map",
+    "static/js/2.51244e91.chunk.js": "/mekk/static/js/2.51244e91.chunk.js",
+    "static/js/2.51244e91.chunk.js.map": "/mekk/static/js/2.51244e91.chunk.js.map",
     "index.html": "/mekk/index.html",
     "static/css/main.f62d7ec1.chunk.css.map": "/mekk/static/css/main.f62d7ec1.chunk.css.map",
-    "static/js/2.8055ca46.chunk.js.LICENSE.txt": "/mekk/static/js/2.8055ca46.chunk.js.LICENSE.txt",
+    "static/js/2.51244e91.chunk.js.LICENSE.txt": "/mekk/static/js/2.51244e91.chunk.js.LICENSE.txt",
     "static/media/Banner.css": "/mekk/static/media/banner-bg.62bc4acb.jpg",
     "static/media/fly1.66c06160.jpg": "/mekk/static/media/fly1.66c06160.jpg",
     "static/media/fly10.fa74b034.jpg": "/mekk/static/media/fly10.fa74b034.jpg",
@@ -37,9 +37,9 @@
     "static/media/ui9.7b4864ad.jpg": "/mekk/static/media/ui9.7b4864ad.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.41fbf263.js",
-    "static/js/2.8055ca46.chunk.js",
+    "static/js/runtime-main.2f329ff7.js",
+    "static/js/2.51244e91.chunk.js",
     "static/css/main.f62d7ec1.chunk.css",
-    "static/js/main.09055a30.chunk.js"
+    "static/js/main.38954a59.chunk.js"
   ]
 }
