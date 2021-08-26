@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo2 from '../../Assets/Logo2.png'
+import cvmekk from '../../Assets/cvmekk.pdf'
 
 import "./Cv.css"
 
@@ -64,9 +65,9 @@ class Cv extends React.Component {
                                         <h2 className="card-title fs-1 mb-5 fw-bold">About Me</h2>
                                         <p className="card-text">
                                             I am Fayssal El MEkkaoui, im 22 years old engineering students at
-                                            National Institut of Posts and Telecommunication INPT at Rabat, Morocco,
-                                            I currently study Ubiquitos and distrubited systems Cloud and IoT,
-                                            Im also a passionate wuth graphic design
+                                            National Institut of Posts and Telecommunication Rabat, Morocco,
+                                            I am also pasionate with graphic design, you find here some of my works
+                                            and projects :) enjoy.
 
                                         </p>
                                     </div>
@@ -105,23 +106,25 @@ class Cv extends React.Component {
 
                                 <div className="card border-0 rounded shadow-sm p-3 mb-3">
                                     <div className="card-body">
-                                        <h2 className="card-title fs-1 mb-5 fw-bold">Work Experience</h2>
+                                        <h2 className="card-title fs-1 mb-5 fw-bold"><i className="fa fa-suitcase "> </i> Experience</h2>
                                         <div>
                                             <p>
-                                                <span className="fw-bold text-secondary fs-5">Founder and Lead Developer</span><span class="text-muted">- Project 1</span>
+                                                <span className="fw-bold text-secondary fs-5"></span><span className="text-muted">&bull; Freelancer at <a href="https://www.inetech.ml">inetech.ml</a> (2020 - current) </span>
                                             </p>
                                             <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Asperiores rerum eos similique voluptatibus, reprehenderit ab
-                                                dicta explicabo dolores porro id sint! Totam consequatur
-                                                sapiente beatae quos necessitatibus excepturi cum qui!
-                                                Accusantium aut, vitae, consequuntur nesciunt accusamus nisi
-                                                voluptatem illum quos qui laborum consequatur quis, alias
-                                                soluta. Quo esse, excepturi in dignissimos minus eveniet nihil
-                                                expedita. Expedita quae eveniet nemo rem.
+                                                Working with a team of developers and graphic designers to satisfy our clients needs in Digiital services ( Websites, UI/UX, WebApps ...)
+                                            </p>
+                                        </div>
+                                        <div className="mt-3">
+                                            <p>
+                                                <span className="text-muted">&bull; Internship <a href="https://www.Esport-Academy.ma">Esport-Academy.ma</a> (July - Septembre 2021) </span>
+                                            </p>
+                                            <p>
+                                                Working with a team to build a streaming plateform for videogames + Prototyping
                                             </p>
                                         </div>
                                     </div>
+                                    
                                     <hr className="my-3" />
                                 </div>
                             </div>
@@ -149,30 +152,31 @@ class Cv extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card border-0 rounded shadow-sm mb-3 p-3">
+                                <div className="card border-0 rounded shadow-sm mb-3 pl-3 pr-3 pt-3 ">
                                     <div className="card-body">
-                                        <h2 className="card-title fs-3 fw-bold mb-4">Testimonial</h2>
+                                        <h2 className="card-title fs-3 fw-bold mb-4">skills</h2>
                                         <div className="mb-5">
                                             <div>
                                                 <div className="border-start border-5 border-primary ps-4">
                                                     <p>
-                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                                        Dolore corrupti animi aperiam, corporis, rem quisquam
-                                                        sapiente nihil dicta culpa repellendus sequi voluptatum
-                                                        enim similique saepe! Cumque eos labore sunt quisquam.
+                                                       <p> Adobe Photoshop</p>
+                                                        <p>Adobe Xd</p>
+                                                        <p>Html, css , Reactjs</p>
+                                                        <p>Bootstrap</p>
+                                                        <p>Python, java, c </p>
+                                                        <p>MySql, mongoDb</p>
+                                                        <p>Data mining</p>
+                                                        
                                                     </p>
                                                 </div>
-                                                <div clasName="ps-4 border-start border-5 border-white">
-                                                    <p className="mb-0 fw-bolder text-secondary">Name</p>
-                                                    <p className="text-muted">Position, Project Name</p>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="card border-0 rounded shadow-sm mb-3 p-3">
                                     <div className="card-body">
-                                        <h2 className="card-title fs-3 fw-bold mb-4">Education</h2>
+                                        <h2 className="card-title fs-3 fw-bold mb-4"><i className="fa fa-graduation-cap"> </i> Education</h2>
                                         <div className="d-flex align-items-center justify-content-start mb-3">
                                             <div className="d-flex align-items-center justify-content-center">
                                                 <i className="m-0 p-0 bi bi-building"></i>
@@ -184,8 +188,8 @@ class Cv extends React.Component {
                     justify-content-center
                     ms-3
                   ">
-                                                <p className="fw-bold text-secondary mb-0">School/College Name</p>
-                                                <p className="text-muted">BE (2019 - Current)</p>
+                                                <p className="fw-bold text-secondary mb-0">&bull; INPT - RABAT (2019 - Current) </p>
+                                                <p className="text-secondary mb-0">&bull; PREPARATORY CLASSES (2017 - 2019</p>
                                             </div>
                                         </div>
                                     </div>
@@ -201,13 +205,13 @@ class Cv extends React.Component {
                   mb-3
                 ">
                                             <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">Arabic: </span>Proficient
+                                                <span className="fw-bold text-secondary">Arabic </span>
                                             </p>
                                             <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">English: </span>Proficient
+                                                <span className="fw-bold text-secondary">English </span>
                                             </p>
                                             <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">French: </span>Proficient
+                                                <span className="fw-bold text-secondary">French </span>
                                             </p>
                                             <div className="
                     d-flex
@@ -224,10 +228,15 @@ class Cv extends React.Component {
                                         </div>
                                     </div>
                                 </div>
+                                <div>
+                                <button onClick={()=> {window.location.href = "https://doc-04-68-docs.googleusercontent.com/docs/securesc/q5o0049tmq7ekkhj11e30g21lt0g5ape/v1ba8jts0eqebt0ei8t9p65u3k7f9gbs/1629983925000/02106318956000063801/02106318956000063801/1SQgHBvqKwanksDJdNs-yGxTXh6_qIiPq?e=download&authuser=0"}}  className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
                             </div>
+                            </div>
+                            
                         </div>
                     </div>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+                    
                 </body>
 
 

@@ -8,6 +8,16 @@
     animation: move01 0.6s linear ;
 }
 
+.text-muted {
+    font-weight: 700;
+}
+
+.button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
 
 
 
@@ -30,4 +40,5 @@
         margin-bottom: 20px;
     }
 }
+
 
