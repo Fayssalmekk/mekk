@@ -229,7 +229,7 @@ class Cv extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                <button onClick={()=> {window.location.href = "https://doc-04-68-docs.googleusercontent.com/docs/securesc/q5o0049tmq7ekkhj11e30g21lt0g5ape/v1ba8jts0eqebt0ei8t9p65u3k7f9gbs/1629983925000/02106318956000063801/02106318956000063801/1SQgHBvqKwanksDJdNs-yGxTXh6_qIiPq?e=download&authuser=0"}}  className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
+                                <button onClick={()=> {window.location.href = "https://doc-04-68-docs.googleusercontent.com/docs/securesc/q5o0049tmq7ekkhj11e30g21lt0g5ape/n3u6psre5v2d9h679dcjvq9oq3c5efkl/1629985425000/02106318956000063801/02106318956000063801/1SQgHBvqKwanksDJdNs-yGxTXh6_qIiPq?e=download&authuser=0&nonce=ra9fh6t0ececo&user=02106318956000063801&hash=au39uaom0pfpvmd5o7gg802nuovm7rvd"}}  className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
                             </div>
                             </div>
                             

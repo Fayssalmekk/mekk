@@ -26,7 +26,7 @@ class App extends Component {
         <div className="app">
           <Switch>
             
-            <Route exact path="/">
+            <Route exact path="/aboutme">
               
               <Banner />
               <NavBar2/>
