@@ -3,10 +3,7 @@
     font-size: 37px;
     font-weight: 700;
 }
-.cv {
-    margin-top: 100px;
-    animation: move01 0.6s linear ;
-}
+
 
 .text-muted {
     font-weight: 700;
@@ -39,6 +36,11 @@
         font-size: 11px;
         margin-bottom: 20px;
     }
+}
+
+.cv {
+    margin-top: 100px;
+    animation: move01 0.6s linear ;
 }
 
 

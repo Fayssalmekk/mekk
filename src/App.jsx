@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Banner from './Components/Banner/Banner';
 import NavBar2 from './Components/NavBar/NavBar';
 import Gall2 from './Components/Gall/Gall2';
@@ -17,54 +17,55 @@ import Cv from './Components/Cv/Cv'
 
 
 class App extends Component {
-  
-  
- 
+
+
+
   render() {
     return (
       <Router>
         <div className="app">
+          <Redirect from="/" to="aboutme" />
           <Switch>
-            
-            <Route exact path="/aboutme">
-              
+
+            <Route exact path="/aboutme" >
+
               <Banner />
-              <NavBar2/>
-              <Cv/>
-              
+              <NavBar2 />
+              <Cv />
+
             </Route>
             <Route exact path="/uiux">
-              
-              <Banner/>
-              <NavBar2/>
-              <Gall/>
-              
+
+              <Banner />
+              <NavBar2 />
+              <Gall />
+
             </Route>
             <Route exact path="/flyers">
-              
+
               <Banner />
-              <NavBar2/>
-              <Gall2/>
-              
+              <NavBar2 />
+              <Gall2 />
+
             </Route>
             <Route exact path="/artworks">
-              
+
               <Banner />
-              <NavBar2/>
-              
+              <NavBar2 />
+
             </Route>
             <Route exact path="/manip">
-              
+
               <Banner />
-              <NavBar2/>
-              
+              <NavBar2 />
+
             </Route>
-            
-             
-            
+
+
+
           </Switch>
         </div>
-      
+
       </Router>
     );
   }
