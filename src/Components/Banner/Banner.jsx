@@ -32,10 +32,10 @@ class Banner extends Component {
                     </div>
                     <div>
                         <ul className="text-center ic">
-                            <li className="faa fa fa-github fa-2x"></li>
-                            <li className="faa fa fa-facebook fa-2x"></li>
-                            <li className="faa fa fa-instagram fa-2x"></li>
-                            <li className="faa fa fa-linkedin fa-2x"></li>
+                            <li onClick={()=> window.open("https://www.github.com/Fayssalmekk")} className="ichover faa fa fa-github fa-2x"></li>
+                            <li onClick={()=> window.open("https://www.facebook.com/fayssal.elmekkaoui")} className="ichover faa fa fa-facebook fa-2x"></li>
+                            <li onClick={()=> window.open("https://www.instagram.com/art.mekk/")} className="ichover faa fa fa-instagram fa-2x"></li>
+                            <li onClick={()=> window.open("https://www.linkedin.com/in/fayssal-el-mekkaoui-33bb90198/")} className="ichover faa fa fa-linkedin fa-2x"></li>
                         </ul>
 
                     </div>

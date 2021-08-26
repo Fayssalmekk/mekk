@@ -4,6 +4,7 @@ import Logo2 from '../../Assets/Logo2.png'
 import "./Cv.css"
 
 class Cv extends React.Component {
+    
     render() {
         return (
             <div className="cv">
@@ -33,16 +34,16 @@ class Cv extends React.Component {
                                 <h1 className="name  ml-md-5 mb-0">Fayssal El MEKKAOUI</h1>
                                 <p className="job ml-md-5 mb-md-4 mt-1">Cloud & IoT engineering Studnt | Graphic designer</p>
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <button className="btn btn-dark rounded-circle ml-md-5 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
-                                        <i className=" fa fa-github"></i>
+                                    <button onClick={()=> window.open("https://www.github.com/Fayssalmekk")} className="btn btn-dark rounded-circle ml-md-5 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                        <i  className=" fa fa-github"></i>
                                     </button>
-                                    <button className="btn btn-primary rounded-circle ms-2 ml-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button onClick={()=> window.open("https://www.linkedin.com/in/fayssal-el-mekkaoui-33bb90198/")} className="btn btn-primary rounded-circle ms-2 ml-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-linkedin"></i>
                                     </button>
-                                    <button className="btn btn-danger rounded-circle ms-2 fs-4 ml-2 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button  onClick={()=> window.open("https://www.instagram.com/art.mekk/")} className="btn btn-danger rounded-circle ms-2 fs-4 ml-2 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-instagram"></i>
                                     </button>
-                                    <button className="btn btn-info text-white rounded-circle ml-2 ms-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button  onClick={()=> window.open("https://www.facebook.com/fayssal.elmekkaoui")} className="btn btn-info text-white rounded-circle ml-2 ms-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-facebook "></i>
                                     </button>
                                 </div>
