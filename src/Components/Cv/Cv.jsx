@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo2 from '../../Assets/Logo2.png'
-import cvmekk from '../../Assets/cvmekk.pdf'
+
 
 import "./Cv.css"
 
