@@ -97,28 +97,8 @@ li:not(:last-child) {
   animation: color-change 2s infinite, size-change 2s infinite;
 }
 
-@keyframes color-change {
-  100% {
-    color: rgb(243, 243, 243);
-  }
-  50% {
-    color: rgb(171, 97, 255);
-  }
-  0% {
-    color: rgb(243, 243, 243);
-  }
-}
-@keyframes size-change {
-  100% {
-    bottom: 10px;
-  }
-  50% {
-    bottom: 0px;
-  }
-  0% {
-    bottom: 10px;
-  }
-}
+
+
 
 .ic {
   margin-top: 40px;
@@ -171,12 +151,16 @@ li:not(:last-child) {
 @media (max-width: 1100px) {
   .txt1 {
     font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 65px;
   }
   .txt2 {
     font-size: 18px;
+    margin-bottom: 20pxs;
   }
   .dakchi {
     margin-left: -8px;
+    margin-bottom: 20px;
   }
   #crow {
     
@@ -187,12 +171,14 @@ li:not(:last-child) {
 @media (max-width: 600px) {
   .txt1 {
     font-size: 26px;
+    margin-top: 70px;
   }
   .txt2 {
     font-size: 15px;
   }
   .dakchi {
     margin-left: -20px;
+    margin-top: 28px;
   }
   #crow {
     font-size: 18px;
@@ -202,19 +188,23 @@ li:not(:last-child) {
 @media (max-width: 500px) {
   .txt1 {
     font-size: 26px;
+    
   }
   .txt2 {
     font-size: 14px;
   }
   .dakchi {
     margin-left: -40px;
+
+    
   }
   .logo {
     height: 100px;
   }
   .ic {
-    margin-top: 230px;
+    margin-top: 300px;
     font-size: 12px;
+    
   }
   #crow {
     font-size: 15px;

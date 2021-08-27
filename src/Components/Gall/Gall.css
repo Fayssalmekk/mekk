@@ -11,14 +11,7 @@
 }
 
 
-@keyframes move01 {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
-}
+
 
 .image-card {
   border-radius: 20px;
@@ -102,5 +95,5 @@ body {
 
 .App {
   margin-top: 100px;
-  animation: move01 0.6s linear;
+  
 }
