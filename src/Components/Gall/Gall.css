@@ -12,10 +12,10 @@
 
 
 @keyframes move01 {
-  0% {
+  from {
     opacity: 0%;
   }
-  100% {
+  to {
     opacity: 100%;
   }
 }
