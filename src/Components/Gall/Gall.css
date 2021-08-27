@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.title {
+  font-weight: 700;
+  font-size: 23px;
+  padding-top: 20px;
+  text-decoration: underline 6px ;
+  display: none;
+}
+
+
 @keyframes move01 {
   0% {
     opacity: 0%;
@@ -38,13 +47,16 @@
   justify-content: space-between;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 950px) {
   .image-card {
     width: 300px;
     height: 300px;
   }
   .lightbox-img {
     height: 350px;
+  }
+  .title {
+    display:grid;
   }
 }
 

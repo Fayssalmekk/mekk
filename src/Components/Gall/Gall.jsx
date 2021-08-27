@@ -90,6 +90,7 @@ function ImageGallery() {
 
   return (
     <>
+    <h1 className="title"> UI/UX  </h1>
       <div className=" mt-5">{imageCards}</div>
       
       {

@@ -32,6 +32,7 @@ class App extends Component {
               <Banner />
               <NavBar2 />
               <Cv />
+           
 
             </Route>
             <Route exact path="/uiux">
