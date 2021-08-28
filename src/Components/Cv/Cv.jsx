@@ -71,28 +71,51 @@ class Cv extends React.Component {
 
                                         </p>
                                     </div>
+                                    <hr className="my-1" />
                                 </div>
+
 
                                 <div className="card border-0 rounded shadow-sm mb-3 p-3">
                                     <div className="card-body">
                                         <h2 className="card-title mb-5 fs-1 fw-bold"><i className="fa fa-rocket"> </i> Projects</h2>
                                         <div>
                                             <p>
-                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; Freelancer at <a href="https://www.inetech.ml">inetech.ml</a><span className="text-muted"> (2020 - current)</span>  </span>
+                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; ROAD SIGNS DETECTION :  </span>
                                             </p>
                                             <p>
-                                                Working with a team of developers and graphic designers to satisfy our clients needs in Digiital services ( Websites, UI/UX, WebApps ...)
+                                                Detection of road signs and return their values using Opencv and Python.
+
                                             </p>
                                         </div>
                                         <div className="mt-3">
                                             <p>
-                                                <span className="txthead">&bull; Internship <a href="https://www.Esport-Academy.ma">Esport-Academy.ma</a><span className="text-muted"> (July - Septembre 2021) </span></span>
+                                                <span className="txthead">&bull; DATA-MINING and MACHINE LEARNING : </span>
                                             </p>
                                             <p>
-                                                Working with a team to build a streaming plateform for videogames + Prototyping
+                                                Analysing ahotel boking dataset and predict booking cancelations.
+                                            </p>
+                                        </div>
+                                        <div className="mt-3">
+                                            <p>
+                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; STORAGE WEB APPLICATION :  </span>
+                                            </p>
+                                            <p>
+                                                Building a website where you can uplaod and download files using Reactjs and firebase.
+
+                                            </p>
+                                        </div>
+                                        <div className="mt-3">
+                                            <p>
+                                                <span className="txthead">&bull; NETWORK SECURITY :  </span>
+                                            </p>
+                                            <p>
+                                                Securing different equipments of a networkinfrastructure using Cisco packet tracer.
                                             </p>
                                         </div>
                                     </div>
+                                    <hr className="my-1" />
+
+
                                 </div>
 
                                 <div className="card border-0 rounded shadow-sm p-3 mb-3">
@@ -116,7 +139,7 @@ class Cv extends React.Component {
                                         </div>
                                     </div>
 
-                                    <hr className="my-3" />
+                                    <hr className="my-1" />
                                 </div>
                             </div>
                             <div className="col-0 col-lg-4 overflow-auto">
@@ -179,8 +202,8 @@ class Cv extends React.Component {
                     justify-content-center
                     ms-3
                   ">
-                                                <p className="fw-bold text-secondary mb-0">&bull; INPT - RABAT (2019 - Current) </p>
-                                                <p className="text-secondary mb-0">&bull; PREPARATORY CLASSES (2017 - 2019</p>
+                                                <p className="card-text">&bull; INPT - RABAT (2019 - Current) </p>
+                                                <p className="card-text">&bull; PREPARATORY CLASSES (2017 - 2019</p>
                                             </div>
                                         </div>
                                     </div>
@@ -195,14 +218,14 @@ class Cv extends React.Component {
                   justify-content-center
                   mb-3
                 ">
-                                            <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">Arabic </span><span className="stars"> ★★★★★</span>
+                                            <p className=" mb-1">
+                                                <span className="card-text">Arabic </span><span className="stars"> ★★★★★</span>
                                             </p>
-                                            <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">English </span><span className="stars"> ★★★★☆</span>
+                                            <p className=" mb-1">
+                                                <span className="card-text">English </span><span className="stars"> ★★★★☆</span>
                                             </p>
-                                            <p className="text-muted mb-1">
-                                                <span className="fw-bold text-secondary">French </span><span className="stars"> ★★★★☆</span>
+                                            <p className=" mb-1">
+                                                <span className="card-text">French </span><span className="stars"> ★★★★☆</span>
                                             </p>
                                             <div className="
                     d-flex
