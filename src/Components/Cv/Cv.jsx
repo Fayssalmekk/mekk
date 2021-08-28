@@ -14,8 +14,8 @@ class Cv extends React.Component {
 
 
 
-                <body className="mt-3 bg-light">
-                    <div className="container card bg-white border-0 mb-5 shadow-sm">
+                <body className="container  mt-3 bg-light">
+                    <div className=" h-10  bg-white border-0 mb-5 shadow-sm">
                         <div className=" card-body d-flex align-items-center justify-content-start p-5 flex-sm-column flex-column flex-md-row">
                             <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGEJHHZLNITQQ/profile-displayphoto-shrink_800_800/0/1595289959603?e=1635379200&v=beta&t=20bmbfivQZxci1SG9PyCit6OL-m2sESlR8uyLCT6y8U" className="rounded-circle bg-secondary mb-sm-4 mb-4 mb-md-0" alt="profil" width="200" />
                             <div className="
@@ -57,7 +57,7 @@ class Cv extends React.Component {
                         </div>
                     </div>
 
-                    <div className="container h-100">
+                    <div className=" ">
                         <div className="row pb-5">
                             <div className="col-12 col-lg-8 overflow-auto">
                                 <div className="card rounded border-0 mb-3 shadow-sm p-3">
