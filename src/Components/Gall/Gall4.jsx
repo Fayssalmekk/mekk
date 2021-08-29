@@ -29,18 +29,19 @@ class Gall4 extends React.Component {
 
 
       <div className="container-fluid App">
+        <h1 className="title"> ARTWORKS  </h1>
         <div className="row mt-5 gall4">
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
             <img src={art0} className="img-fluid mt-3 img4" />
             <img src={art4} className="img-fluid mt-3 img4" />
             <img src={art6} className="img-fluid mt-3 img4" />
             <img src={art9} className="img-fluid mt-3 img4" />
-            
+
             <img src={art15} className="img-fluid mt-3 img4" />
-            
+
           </div>
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-          <img src={art1} className="img-fluid mt-3 img4" />
+            <img src={art1} className="img-fluid mt-3 img4" />
             <img src={art3} className="img-fluid mt-3 img4" />
             <img src={art7} className="img-fluid mt-3 img4" />
             <img src={art10} className="img-fluid mt-3 img4" />
@@ -48,14 +49,14 @@ class Gall4 extends React.Component {
             <img src={art16} className="img-fluid mt-3 img4" />
           </div>
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-          <img src={art2} className="img-fluid mt-3 img4" />
+            <img src={art2} className="img-fluid mt-3 img4" />
             <img src={art5} className="img-fluid mt-3 img4" />
             <img src={art8} className="img-fluid mt-3 img4" />
             <img src={art11} className="img-fluid mt-3 img4" />
             <img src={art14} className="img-fluid mt-3 img4" />
             <img src={art17} className="img-fluid mt-3 img4" />
           </div>
-          
+
         </div>
       </div>
 

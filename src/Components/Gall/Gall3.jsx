@@ -93,7 +93,7 @@ function ImageGallery() {
 
   return (
     <>
-      <h1 className="title"> PRINTS  </h1>
+      <h1 className="title"> LOGOS  </h1>
       <div className=" mt-5">{imageCards}</div>
 
       {
