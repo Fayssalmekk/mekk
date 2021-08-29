@@ -4,6 +4,7 @@ import Banner from './Components/Banner/Banner';
 import NavBar2 from './Components/NavBar/NavBar';
 import Gall2 from './Components/Gall/Gall2';
 import Gall3 from './Components/Gall/Gall3';
+import Gall4 from './Components/Gall/Gall4';
 
 
 
@@ -61,6 +62,7 @@ class App extends Component {
 
               <Banner />
               <NavBar2 />
+              <Gall4/>
 
             </Route>
 
