@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Banner from './Components/Banner/Banner';
 import NavBar2 from './Components/NavBar/NavBar';
 import Gall2 from './Components/Gall/Gall2';
+import Gall3 from './Components/Gall/Gall3';
 
 
 
@@ -23,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="app">
+        <div className="app ">
           <Redirect from="/" to="aboutme" />
           <Switch>
 
@@ -42,20 +43,21 @@ class App extends Component {
               <Gall />
 
             </Route>
-            <Route exact path="/flyers">
+            <Route exact path="/prints">
 
               <Banner />
               <NavBar2 />
               <Gall2 />
 
             </Route>
-            <Route exact path="/artworks">
-
+            <Route exact path="/logos">
+              
               <Banner />
               <NavBar2 />
+              <Gall3/>
 
             </Route>
-            <Route exact path="/manip">
+            <Route exact path="/artworks">
 
               <Banner />
               <NavBar2 />
@@ -65,6 +67,7 @@ class App extends Component {
 
 
           </Switch>
+          <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>
         </div>
 
       </Router>
