@@ -8,7 +8,7 @@ class Cv extends React.Component {
 
     render() {
         return (
-            <div className="cv body ">
+            <div className="cv body animation ">
 
 
 

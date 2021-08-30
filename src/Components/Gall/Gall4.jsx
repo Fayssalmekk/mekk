@@ -28,7 +28,7 @@ class Gall4 extends React.Component {
     return (
 
 
-      <div className="container-fluid App">
+      <div className="container App animation">
         <h1 className="title"> ARTWORKS  </h1>
         <div className="row mt-5 gall4">
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">

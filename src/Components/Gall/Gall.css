@@ -6,12 +6,9 @@
   font-weight: 700;
   font-size: 23px;
   padding-top: 20px;
-  text-decoration: underline 6px ;
+  text-decoration: underline 6px;
   display: none;
 }
-
-
-
 
 .image-card {
   border-radius: 20px;
@@ -49,7 +46,7 @@
     height: 350px;
   }
   .title {
-    display:grid;
+    display: grid;
   }
 }
 
@@ -93,9 +90,26 @@ body {
   background-color: rgba(196, 155, 237, 0.45);
 }
 
+@keyframes floating {
+  0% {
+    transform: translate(200px, 0px);
+    opacity: 0%;
+  }
+
+  100% {
+    transform: translate(0, 0px);
+    opacity: 100%;
+  }
+}
+
 .App {
   margin-top: 100px;
+  min-height: 1000px;
   
+}
+
+.animation {
+  animation: floating 2s normal;
 }
 
 .img4 {
