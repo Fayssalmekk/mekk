@@ -31,6 +31,7 @@ const images = [ui2,ui3,ui4,ui5,ui6,ui7,ui8,ui9,ui10];
 //MAIN APP COMPONENT
 function Gall() {
   return (
+    
     <div   className="App container animation ">
      
       

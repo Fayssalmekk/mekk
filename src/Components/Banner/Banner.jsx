@@ -19,7 +19,7 @@ class Banner extends Component {
                             <h1 className="txt1">Welcome To My Portfolio</h1>
 
                             <div className="row dakchi  ">
-                                <div className="txt2 " id="typing">I AM <span>FAYSSAL EL MEKKAOUI.</span></div>
+                                <p className="txt2 " id="typing">I AM <span>FAYSSAL EL MEKKAOUI.</span></p>
                                 <div className="txt2 " id="crow">|</div>
                             </div>
 
