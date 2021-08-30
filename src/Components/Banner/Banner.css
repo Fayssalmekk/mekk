@@ -200,9 +200,7 @@ li:not(:last-child) {
     font-size: 15px;
   }
 }
-#anim {
-  animation: anim 1s linear 0s;
-}
+
 
 @keyframes anim {
   from {
@@ -214,6 +212,9 @@ li:not(:last-child) {
     transform: translate(0, 0);
     opacity: 1;
   }
+}
+#anim {
+  animation: anim 1s linear 0s;
 }
 
 

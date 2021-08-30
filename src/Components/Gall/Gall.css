@@ -16,12 +16,14 @@
   margin: 10px;
   height: 350px;
   object-fit: cover;
+  box-shadow: rgb(138, 138, 138) 0 0 12px -5px ;
 }
 
 .lightbox-img {
   height: 70%;
   max-width: 100%;
   object-fit: cover;
+
 }
 
 #lightbox {
@@ -89,9 +91,6 @@ button:hover {
 body {
   background-color: rgba(196, 155, 237, 0.45);
 }
-#animation {
-  animation: floating 1s linear 0s;
-}
 
 @keyframes floating {
   from {
@@ -104,6 +103,9 @@ body {
     opacity: 1;
   }
 }
+.animation {
+  animation: floating 1s linear 0s;
+}
 
 .App {
   margin-top: 100px;
@@ -114,4 +116,5 @@ body {
 
 .img4 {
   border-radius: 15px;
+  box-shadow: rgb(138, 138, 138) 0 0 12px -5px ;
 }
