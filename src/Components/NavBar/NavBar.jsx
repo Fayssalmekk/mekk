@@ -34,7 +34,7 @@ class NavBar2 extends Component {
 
   render() {
     return (
-      <nav className={`naav ${this.state.nav && 'Nav__black'}`}  >
+      <nav id="animnav" className={`naav ${this.state.nav && 'Nav__black'}`}  >
 
 
         <div className="text-center txt3" id="">
