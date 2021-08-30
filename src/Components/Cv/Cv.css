@@ -66,17 +66,18 @@
     text-align: center;
   }
 }
-@keyframes floating {
-  0% {
-    transform: translate(200px, 0px);
-    opacity: 0%;
+#anim {
+    animation: anim 1s linear 0s;
   }
-
-  100% {
-    transform: translate(0, 0px);
-    opacity: 100%;
+  
+  @keyframes anim {
+    0% {
+      transform: translate(0, 200px);
+      opacity: 0%;
+    }
+  
+    100% {
+      transform: translate(0, 0px);
+      opacity: 100%;
+    }
   }
-}
-.animation {
-  animation: floating 2s normal;
-}

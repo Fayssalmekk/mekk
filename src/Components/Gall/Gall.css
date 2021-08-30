@@ -89,6 +89,9 @@ button:hover {
 body {
   background-color: rgba(196, 155, 237, 0.45);
 }
+#animation {
+  animation: floating 1s linear 0s;
+}
 
 @keyframes floating {
   0% {
@@ -108,9 +111,6 @@ body {
   
 }
 
-#animation {
-  animation: floating 2s normal;
-}
 
 .img4 {
   border-radius: 15px;
