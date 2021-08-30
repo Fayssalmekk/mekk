@@ -66,18 +66,3 @@
     text-align: center;
   }
 }
-#anim {
-    animation: anim 1s linear 0s;
-  }
-  
-  @keyframes anim {
-    0% {
-      transform: translate(0, 200px);
-      opacity: 0%;
-    }
-  
-    100% {
-      transform: translate(0, 0px);
-      opacity: 100%;
-    }
-  }
