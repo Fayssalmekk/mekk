@@ -206,7 +206,7 @@ li:not(:last-child) {
 
 @keyframes anim {
   from {
-    transform: translate(0, 1);
+    transform: translate(0, 200px);
     opacity: 0;
   }
 
