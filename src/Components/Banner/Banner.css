@@ -204,12 +204,12 @@ li:not(:last-child) {
 
 @keyframes anim {
   from {
-    transform: translate(0, 200px);
+    transform: translate(0, 100px);
     opacity: 0;
   }
 
   to {
-    transform: translate(0, 0);
+    transform: translate(0, 0px);
     opacity: 1;
   }
 }
