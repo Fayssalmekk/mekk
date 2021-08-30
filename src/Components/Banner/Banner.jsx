@@ -13,7 +13,7 @@ class Banner extends Component {
         return (
             <div>
                 <div className="banner ">
-                    <div className="container anim ">
+                    <div id="anim" className="container ">
                         <div className="text-center logo ">
                             <NavLink to="/aboutme"><img className="img-fluid logo"  alt="profil" src={mainLogo} /></NavLink>
                             <h1 className="txt1">Welcome To My Portfolio</h1>
@@ -32,7 +32,7 @@ class Banner extends Component {
 
                     </div>
                     <div>
-                        <ul className="text-center ic anim">
+                        <ul id="anim" className="text-center ic">
                             <li onClick={()=> window.open("https://www.github.com/Fayssalmekk")} className="ichover faa fa fa-github fa-2x"></li>
                             <li onClick={()=> window.open("https://www.facebook.com/fayssal.elmekkaoui")} className="ichover faa fa fa-facebook fa-2x"></li>
                             <li onClick={()=> window.open("https://www.instagram.com/art.mekk/")} className="ichover faa fa fa-instagram fa-2x"></li>

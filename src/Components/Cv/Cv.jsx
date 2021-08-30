@@ -2,13 +2,15 @@ import React from 'react';
 import Logo2 from '../../Assets/Logo2.png'
 
 
+
+
 import "./Cv.css"
 
 class Cv extends React.Component {
 
     render() {
         return (
-            <div className="cv body animation ">
+            <div id="animation" className="cv body  ">
 
 
 

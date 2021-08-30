@@ -108,7 +108,7 @@ body {
   
 }
 
-.animation {
+#animation {
   animation: floating 2s normal;
 }
 

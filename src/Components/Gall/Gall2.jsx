@@ -34,7 +34,7 @@ const images = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8, fly9, fly10, fly
 //MAIN APP COMPONENT
 function Gall2() {
   return (
-    <div id className="App container animation">
+    <div id="animation" className="App container ">
 
 
       <ImageGallery />
