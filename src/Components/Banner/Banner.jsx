@@ -12,8 +12,8 @@ class Banner extends Component {
     render() {
         return (
             <div>
-                <div className="banner ">
-                    <div  id="anim" className="container anim">
+                <div id="anim" className="banner ">
+                    <div   className="container">
                         <div className="text-center logo ">
                             <NavLink to="/aboutme"><img className="img-fluid logo"  alt="profil" src={mainLogo} /></NavLink>
                             <h1 className="txt1">Welcome To My Portfolio</h1>
