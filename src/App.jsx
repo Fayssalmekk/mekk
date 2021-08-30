@@ -5,6 +5,7 @@ import NavBar2 from './Components/NavBar/NavBar';
 import Gall2 from './Components/Gall/Gall2';
 import Gall3 from './Components/Gall/Gall3';
 import Gall4 from './Components/Gall/Gall4';
+import "./index.css"
 
 
 
@@ -24,12 +25,14 @@ class App extends Component {
 
   render() {
     return (
+      
       <Router>
+        <h1 className="none" >FAYSSAL EL MEKKAOUI PORTFOLIO INPT GRAPHIC DESIGNER</h1>
         <div className="app ">
-          <Redirect from="/" to="aboutme" />
+          <Redirect from="/" to="about-me" />
           <Switch>
 
-            <Route exact path="/aboutme" >
+            <Route exact path="/about-me" >
 
               <Banner />
               <NavBar2 />
@@ -37,7 +40,7 @@ class App extends Component {
            
 
             </Route>
-            <Route exact path="/uiux">
+            <Route exact path="/ui-ux">
 
               <Banner />
               <NavBar2 />
