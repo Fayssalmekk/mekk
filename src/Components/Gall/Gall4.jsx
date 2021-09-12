@@ -46,7 +46,7 @@ class Gall4 extends React.Component {
             <img src={art7} className="img-fluid mt-3 img4" alt="artwork" />
             <img src={art10} className="img-fluid mt-3 img4" alt="artwork"/>
             <img src={art13} className="img-fluid mt-3 img4" alt="artwork"/>
-            <img src={art16} className="img-fluid mt -3 img4" alt="artwork"/>
+            <img src={art16} className="img-fluid mt-3 img4" alt="artwork"/>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
             <img src={art2} className="img-fluid mt-3 img4" alt="artwork"/>
