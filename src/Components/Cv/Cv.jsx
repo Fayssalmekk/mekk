@@ -1,5 +1,7 @@
 import React from 'react';
 import Logo2 from '../../Assets/Logo2.png'
+import data from './data';
+import Skeleton from 'react-loading-skeleton';
 
 
 
@@ -34,11 +36,11 @@ class Cv extends React.Component {
             mb-5
             mb-md-0
           ">
-                                <h1 className="name  ml-md-5 mb-0">Fayssal El MEKKAOUI</h1>
-                                <p className="job ml-md-5 mb-md-4 mt-1">Cloud & IoT engineering Studnt | Graphic designer</p>
+                                <h1 className="name  ml-md-5 mb-0">{data.name || <Skeleton/>}</h1>
+                                <p className="job ml-md-5 mb-md-4 mt-1">{data.title || <Skeleton/>}</p>
                                 <div className="d-flex align-items-center justify-content-between">
                                     <button onClick={() => window.open("https://www.github.com/Fayssalmekk")} className="btn btn-dark rounded-circle ml-md-5 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
-                                        <i className=" fa fa-github"></i>
+                                        {<i className=" fa fa-github"></i> || <Skeleton circle={true} width={40} height={40} /> }
                                     </button>
                                     <button onClick={() => window.open("https://www.linkedin.com/in/fayssal-el-mekkaoui-33bb90198/")} className="btn btn-primary rounded-circle ms-2 ml-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-linkedin"></i>

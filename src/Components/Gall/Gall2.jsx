@@ -15,6 +15,8 @@ import fly11 from '../../Assets/fly11.jpg'
 import fly12 from '../../Assets/fly12.jpg'
 import fly13 from '../../Assets/fly13.jpg'
 import fly14 from '../../Assets/fly14.jpg'
+import Skeleton from 'react-loading-skeleton';
+
 
 
 const { useState } = React;
@@ -34,7 +36,12 @@ const images = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8, fly9, fly10, fly
 //MAIN APP COMPONENT
 function Gall2() {
   return (
-    <div  className="App container animation ">
+    <div  className="App container  ">
+      <div className="skele ">
+        <div className=" skeleton mb-5">
+          <Skeleton className="mr-3 ml-3 mt-4" count={14} width={340} height={350} />
+        </div>
+      </div>
 
 
       <ImageGallery />

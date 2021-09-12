@@ -10,31 +10,35 @@ import ui7 from '../../Assets/ui7.jpg'
 
 import ui8 from '../../Assets/ui8.jpg'
 import ui9 from '../../Assets/ui9.jpg'
+import Skeleton from 'react-loading-skeleton';
 
 
 
 const { useState } = React;
 
-//IMAGES
-//you can also import a local file, the syntax would look like:
-//import image1 from './images/imagename.jpg'
 
 
- 
+
+
 
 
 
 //IMAGE ARRAY
-const images = [ui2,ui3,ui4,ui5,ui6,ui7,ui8,ui9,ui10];
+const images = [ui2, ui3, ui4, ui5, ui6, ui7, ui8, ui9, ui10];
 
 
 //MAIN APP COMPONENT
 function Gall() {
   return (
-    
-    <div   className="App container animation ">
-     
-      
+
+    <div className="App container  ">
+      <div className="skele">
+      <div className=" skeleton mb-5">
+          <Skeleton className="mr-3 ml-3 mt-4" count={9} width={340} height={350} />
+        </div>
+      </div>
+
+
       <ImageGallery />
     </div>
   );
@@ -47,7 +51,7 @@ function Gall() {
 function ImageGallery() {
   const [imageToShow, setImageToShow] = useState("");
   const [lightboxDisplay, setLightBoxDisplay] = useState(false);
-  
+
   //looping through our images array to create img elements
   const imageCards = images.map((image) => (
     <img className="image-card " alt="profil" onClick={() => showImage(image)} src={image} />
@@ -69,7 +73,7 @@ function ImageGallery() {
     e.stopPropagation();
     let currentIndex = images.indexOf(imageToShow);
     if (currentIndex >= images.length - 1) {
-      
+
     } else {
       let nextImage = images[currentIndex + 1];
       setImageToShow(nextImage);
@@ -81,30 +85,30 @@ function ImageGallery() {
     e.stopPropagation();
     let currentIndex = images.indexOf(imageToShow);
     if (currentIndex <= 0) {
-      
+
     } else {
       let nextImage = images[currentIndex - 1];
       setImageToShow(nextImage);
     }
   };
-  
+
 
   return (
     <>
-    <h1 className="title"> UI/UX  </h1>
+      <h1 className="title"> UI/UX  </h1>
       <div className=" mt-5">{imageCards}</div>
-      
+
       {
-        lightboxDisplay ? 
-        <div id="lightbox" className="lightbox" onClick={hideLightBox}>
-          <button onClick={showPrev}> &larr; </button>
-          <img className="lightbox-img" id="lightbox-img" alt="profil" src={imageToShow}></img>
-          <button onClick={showNext}> &rarr; </button>
-        </div>
-       : ""
+        lightboxDisplay ?
+          <div id="lightbox" className="lightbox" onClick={hideLightBox}>
+            <button onClick={showPrev}> &larr; </button>
+            <img className="lightbox-img" id="lightbox-img" alt="profil" src={imageToShow}></img>
+            <button onClick={showNext}> &rarr; </button>
+          </div>
+          : ""
       }
     </>
   );
 }
 
-export default Gall ;
+export default Gall;
