@@ -29,7 +29,9 @@ class App extends Component {
       <Router>
         <h1 className="none" >FAYSSAL EL MEKKAOUI PORTFOLIO INPT GRAPHIC DESIGNER</h1>
         <div className="app ">
+          
           <Redirect from="/" to="about-me" />
+          
           <Switch>
 
             <Route exact path="/about-me" >

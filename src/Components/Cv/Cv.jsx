@@ -8,6 +8,7 @@ import Profile from '../../Assets/profile.jpeg';
 
 
 
+
 import "./Cv.css"
 
 class Cv extends React.Component {
@@ -70,7 +71,7 @@ class Cv extends React.Component {
                                     <div className="card-body">
                                         <h2 className="card-title fs-1 mb-5 fw-bold"><i className="fa fa-user"> </i> About Me</h2>
                                         <p className="card-text">
-                                            I am Fayssal El MEkkaoui, im 22 years old engineering students at
+                                            I am Fayssal El MEkkaoui, im 23 years old engineering students at
                                             National Institut of Posts and Telecommunication Rabat, Morocco,
                                             I am also pasionate with graphic design, you find here some of my works
                                             and projects :) enjoy.
@@ -86,7 +87,7 @@ class Cv extends React.Component {
                                         <h2 className="card-title mb-5 fs-1 fw-bold"><i className="fa fa-rocket"> </i> Projects</h2>
                                         <div>
                                             <p>
-                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; ROAD SIGNS DETECTION :  </span>
+                                                <a href="https://github.com/Fayssalmekk/RoadSignDetect"> <span className="fw-bold  fs-5"></span><span className="txthead">&bull; ROAD SIGNS DETECTION : <i className="fa fa-external-link "> </i> </span> </a>
                                             </p>
                                             <p>
                                                 Detection of road signs and return their values using Opencv and Python.
@@ -95,7 +96,7 @@ class Cv extends React.Component {
                                         </div>
                                         <div className="mt-3">
                                             <p>
-                                                <span className="txthead">&bull; DATA-MINING and MACHINE LEARNING : </span>
+                                                 <a href="https://github.com/Fayssalmekk/ProjetData_Spark"> <span className="txthead">&bull; DATA-MINING and MACHINE LEARNING : <i className="fa fa-external-link "> </i> </span></a>
                                             </p>
                                             <p>
                                                 Analysing ahotel boking dataset and predict booking cancelations.
@@ -103,19 +104,27 @@ class Cv extends React.Component {
                                         </div>
                                         <div className="mt-3">
                                             <p>
-                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; STORAGE WEB APPLICATION :  </span>
+                                                 <a href="https://github.com/Modern-Stream/modern_stream_ui"> <span className="fw-bold  fs-5"></span><span className="txthead">&bull; VIDEO GAMES STREAMING PLATEORME : <i className="fa fa-external-link "> </i> </span></a>
                                             </p>
                                             <p>
-                                                Building a website where you can uplaod and download files using Reactjs and firebase.
+                                                Building a Streaming plateforme for gamers using ReactJs, Nodejs, AWS ...
 
                                             </p>
                                         </div>
                                         <div className="mt-3">
                                             <p>
-                                                <span className="txthead">&bull; NETWORK SECURITY :  </span>
+                                                  <a href="https://drive.google.com/file/d/1H4hw7WvHj2D8BwSRcO2jLX6aHt3pLpW1/view?usp=sharing"> <span className="txthead">&bull; NETWORK SECURITY : <i className="fa fa-external-link "> </i> </span></a>
                                             </p>
                                             <p>
                                                 Securing different equipments of a networkinfrastructure using Cisco packet tracer.
+                                            </p>
+                                        </div>
+                                        <div className="mt-3">
+                                            <p>
+                                                  <a href="/ui-ux"> <span className="txthead">&bull; UI/UX Projects: <i className="fa fa-external-link "> </i> </span></a>
+                                            </p>
+                                            <p>
+                                                  Creating web and mobile prototypes for several projects : Photoshop | Adobe XD | Figma   
                                             </p>
                                         </div>
                                     </div>
@@ -179,13 +188,20 @@ class Cv extends React.Component {
                                             <div>
                                                 <div className="border-start border-5 border-primary ps-4">
                                                     <p>
-                                                        <p> Adobe Photoshop</p>
-                                                        <p>Adobe Xd</p>
-                                                        <p>Html, css , Reactjs</p>
-                                                        <p>Bootstrap</p>
                                                         <p>Python, java, c </p>
                                                         <p>MySql, mongoDb</p>
                                                         <p>Data mining</p>
+                                                        <p>DevOps : Git, Jenkins, Docker </p>
+                                                        <p>Html, css , Reactjs</p>
+                                                        <p>Bootstrap</p>
+                                                        <p>Embaded : OpenCv</p>
+                                                        <p>OS : Linux, Windows</p>
+                                                        <p> Adobe Photoshop , XD , Pr</p>
+                                                        
+                        
+                                                       
+                                                        
+                                                        
 
                                                     </p>
                                                 </div>

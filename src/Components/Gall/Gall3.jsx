@@ -15,7 +15,7 @@ import logo12 from '../../Assets/logo12.png'
 import logo13 from '../../Assets/logo13.jpg'
 import logo14 from '../../Assets/logo14.png'
 import logo15 from '../../Assets/logo15.jpg'
-import Skeleton from 'react-loading-skeleton';
+
 
 
 

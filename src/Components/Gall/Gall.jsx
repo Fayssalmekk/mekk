@@ -7,10 +7,13 @@ import ui4 from '../../Assets/ui4.png'
 import ui5 from '../../Assets/ui5.png'
 import ui6 from '../../Assets/ui6.png'
 import ui7 from '../../Assets/ui7.jpg'
+import ui11 from '../../Assets/ui11.jpg'
+import ui13 from '../../Assets/ui13.jpg'
+import ui14 from '../../Assets/ui4.jpg'
+
 
 import ui8 from '../../Assets/ui8.jpg'
 import ui9 from '../../Assets/ui9.jpg'
-import Skeleton from 'react-loading-skeleton';
 
 
 
@@ -24,7 +27,7 @@ const { useState } = React;
 
 
 //IMAGE ARRAY
-const images = [ui2, ui3, ui4, ui5, ui6, ui7, ui8, ui9, ui10];
+const images = [ui2, ui3, ui4, ui5, ui6, ui7, ui8, ui9, ui10 , ui11 , ui14 , ui13];
 
 
 //MAIN APP COMPONENT

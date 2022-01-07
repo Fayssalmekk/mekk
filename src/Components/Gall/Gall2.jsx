@@ -15,7 +15,8 @@ import fly11 from '../../Assets/fly11.jpg'
 import fly12 from '../../Assets/fly12.jpg'
 import fly13 from '../../Assets/fly13.jpg'
 import fly14 from '../../Assets/fly14.jpg'
-import Skeleton from 'react-loading-skeleton';
+import fly15 from '../../Assets/fly15.jpg'
+import fly16 from '../../Assets/fly16.jpg'
 
 
 
@@ -30,7 +31,7 @@ const { useState } = React;
 
 
 //IMAGE ARRAY
-const images = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8, fly9, fly10, fly11, fly12, fly13, fly14];
+const images = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8, fly9, fly10, fly11, fly12, fly13, fly14, fly15, fly16];
 
 
 //MAIN APP COMPONENT
