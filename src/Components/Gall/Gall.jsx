@@ -31,10 +31,10 @@ const images = [ui2, ui3, ui4, ui5, ui6, ui7, ui8, ui9, ui10];
 function Gall() {
   return (
 
-    <div className="App container  ">
+    <div className="App container animation ">
       <div className="skele">
       <div className=" skeleton mb-5">
-          <Skeleton className="mr-3 ml-3 mt-4" count={9} width={340} height={350} />
+          
         </div>
       </div>
 

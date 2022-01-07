@@ -36,10 +36,10 @@ const images = [logo1,logo2,logo3,logo4,logo5,logo6,logo7,logo8,logo9,logo10,log
 //MAIN APP COMPONENT
 function Gall3() {
   return (
-    <div className="App container ">
+    <div className="App container animation">
       <div className="skele">
       <div className=" skeleton mb-5">
-          <Skeleton className="mr-3 ml-3 mt-4" count={15} width={340} height={350} />
+         
         </div>
       </div>
 

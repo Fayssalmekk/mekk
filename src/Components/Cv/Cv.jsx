@@ -1,7 +1,9 @@
 import React from 'react';
-import Logo2 from '../../Assets/Logo2.png'
+import Logo2 from '../../Assets/Logo2.png';
 import data from './data';
 import Skeleton from 'react-loading-skeleton';
+import Profile from '../../Assets/profile.jpeg';
+
 
 
 
@@ -21,7 +23,7 @@ class Cv extends React.Component {
                 <body className="container  mt-3 bg-light">
                     <div className=" h-10  bg-white border-0 mb-5 shadow-sm">
                         <div className=" card-body d-flex align-items-center justify-content-start p-5 flex-sm-column flex-column flex-md-row">
-                            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGEJHHZLNITQQ/profile-displayphoto-shrink_800_800/0/1595289959603?e=1635379200&v=beta&t=20bmbfivQZxci1SG9PyCit6OL-m2sESlR8uyLCT6y8U" className="rounded-circle bg-secondary mb-sm-4 mb-4 mb-md-0" alt="profil" width="200" />
+                            <img src={Profile} className="rounded-circle bg-secondary mb-sm-4 mb-4 mb-md-0" alt="profil" width="200" />
                             <div className="
             d-flex
             flex-column
@@ -247,7 +249,7 @@ class Cv extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <button onClick={() => { window.location.href = "https://drive.google.com/file/d/1SQgHBvqKwanksDJdNs-yGxTXh6_qIiPq/view?usp=sharing" }} className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
+                                    <button onClick={() => { window.location.href = "https://drive.google.com/file/d/1EiM4aDLGznwJGqrPE9ppIqr2uUcDZgef/view?usp=sharing" }} className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
                                 </div>
                             </div>
 
