@@ -71,10 +71,10 @@ class Cv extends React.Component {
                                     <div className="card-body">
                                         <h2 className="card-title fs-1 mb-5 fw-bold"><i className="fa fa-user"> </i> About Me</h2>
                                         <p className="card-text">
-                                            I am Fayssal El MEkkaoui, im 23 years old engineering students at
-                                            National Institut of Posts and Telecommunication Rabat, Morocco,
-                                            I am also pasionate with graphic design, you find here some of my works
-                                            and projects :) enjoy.
+                                            I am Fayssal El MEkkaoui, im 23 years old Cloud and DevOps Engineer at 4D,
+                                            I have got my engineering degree from the National Institut of Posts and
+                                            Telecommunication Rabat, Morocco,I am also pasionate with graphic design,
+                                            you find here some of my works and projects :) enjoy.
 
                                         </p>
                                     </div>
