@@ -1,5 +1,5 @@
 var data = {
-    name: "Fayssal El MEkkaoui",
+    name: "Fayssal El Mekkaoui",
     title: "Cloud & DevOps Engineer at 4D | Graphic designer"
 
 }
