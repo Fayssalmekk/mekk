@@ -20,12 +20,16 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     // Load data from Firebase
     const loadData = async () => {
       try {
+        console.log('Loading CV data from Firebase...');
         const firebaseData = await getCVData();
         if (firebaseData) {
+          console.log('Firebase data loaded successfully:', firebaseData);
           setCurrentData(firebaseData);
         } else if (initialData && Object.keys(initialData).length > 0) {
+          console.log('Using initial data');
           setCurrentData(initialData);
         } else {
+          console.log('Using default data');
           setCurrentData(data);
         }
       } catch (error) {

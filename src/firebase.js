@@ -11,5 +11,16 @@ const firebaseConfig = {
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
 };
 
+// Debug: Log if Firebase config is loaded
+console.log('Firebase Config Loaded:', {
+  projectId: firebaseConfig.projectId,
+  hasApiKey: !!firebaseConfig.apiKey,
+  hasDatabaseUrl: !!firebaseConfig.databaseURL
+});
+
+if (!firebaseConfig.projectId) {
+  console.error('Firebase config missing! Check Vercel environment variables.');
+}
+
 const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);
