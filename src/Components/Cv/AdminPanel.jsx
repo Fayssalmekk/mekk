@@ -3,7 +3,7 @@ import './AdminPanel.css';
 import data from './data';
 
 
-const ADMIN_PASSWORD = process.env.APP_PASSWORD;
+const ADMIN_PASSWORD = process.env.APP_PASSWORD || "123";
 
 if (!ADMIN_PASSWORD) throw new Error("Missing APP_PASSWORD env var");
 
