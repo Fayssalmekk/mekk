@@ -4,7 +4,7 @@ import data from './data';
 
 
 const ADMIN_PASSWORD = process.env.APP_PASSWORD || "123";
-console.log("Admin password:", process.env.ADMIN_PASSWORD);
+
 
 if (!ADMIN_PASSWORD) throw new Error("Missing APP_PASSWORD env var");
 
