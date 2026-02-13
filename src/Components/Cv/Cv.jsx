@@ -300,9 +300,20 @@ class Cv extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <a href={CV} download className="text-center button" rel="noopener noreferrer">
+                                    <button
+                                        className="text-center button"
+                                        onClick={() => {
+                                            const link = document.createElement('a');
+                                            link.href = CV;
+                                            link.download = 'CV.pdf';
+                                            link.target = '_blank';
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }}
+                                    >
                                         <i className="fa fa-download">  </i> Download My CV
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
 
