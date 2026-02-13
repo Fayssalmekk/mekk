@@ -2,6 +2,29 @@ var data = {
     name: "Fayssal El Mekkaoui",
     title: "Cloud & DevOps Engineer at 4D | Graphic designer",
     about: "I am Fayssal El MEkkaoui, im 24 years old Cloud and DevOps Engineer at 4D, I have got my engineering degree from the National Institut of Posts and Telecommunication Rabat, Morocco,I am also pasionate with graphic design, you find here some of my works and projects :) enjoy.",
+    itServices: {
+        title: "IT Services",
+        tools: [
+            { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
+            { name: "Docker", icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
+            { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
+            { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
+            { name: "React", icon: "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" },
+            { name: "DynamoDB", icon: "https://www.vectorlogo.zone/logos/amazon_dynamodb/amazon_dynamodb-icon.svg" },
+            { name: "Firebase", icon: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" },
+            { name: "MongoDB", icon: "https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" },
+            { name: "Helm", icon: "https://www.vectorlogo.zone/logos/helm/helm-icon.svg" },
+            { name: "Terraform", icon: "https://www.vectorlogo.zone/logos/terraform/terraform-icon.svg" },
+            { name: "Vault", icon: "https://www.vectorlogo.zone/logos/hashicorp_vault/hashicorp_vault-icon.svg" },
+            { name: "GitLab", icon: "https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg" },
+            { name: "CI/CD", icon: "https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg" },
+            { name: "Web Dev", icon: "https://www.vectorlogo.zone/logos/w3c/w3c-icon.svg" },
+            { name: "API Development", icon: "https://www.vectorlogo.zone/logos/openapis/openapis-icon.svg" }
+        ],
+        certifications: [
+            { id: 1, name: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation", year: 2024 }
+        ]
+    },
     location: "Safi, Morocco",
     email: "fayssalelmekkaoui@gmail.com",
     phone: "+212 6 37 21 20 54",

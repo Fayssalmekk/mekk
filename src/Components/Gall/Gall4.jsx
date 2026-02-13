@@ -1,5 +1,7 @@
 import React from 'react';
 import './Gall.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import art0 from '../../Assets/art0.jpg';
 import art1 from '../../Assets/art1.jpg';
 import art2 from '../../Assets/art2.jpg';
@@ -24,12 +26,48 @@ import art17 from '../../Assets/art17.jpg';
 
 
 class Gall4 extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: false }), 800);
+  }
+
+  renderSkeletonColumn = () => {
     return (
+      <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} style={{ marginTop: '12px' }}>
+            <Skeleton width="100%" height={300} borderRadius={8} />
+          </div>
+        ))}
+      </div>
+    );
+  }
 
+  render() {
+    const { loading } = this.state;
 
-      <div  className="container-fluid App  animation">
-        <h1 className="title"> ARTWORKS  </h1>
+    if (loading) {
+      return (
+        <div className="container-fluid App animation">
+          <h1 className="title">ARTWORKS</h1>
+          <div className="row mt-5 gall4">
+            {this.renderSkeletonColumn()}
+            {this.renderSkeletonColumn()}
+            {this.renderSkeletonColumn()}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="container-fluid App animation">
+        <h1 className="title">ARTWORKS</h1>
         <div className="row mt-5 gall4">
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
             <img src={art0} className="img-fluid mt-3 img4" alt="artwork" />
@@ -59,9 +97,7 @@ class Gall4 extends React.Component {
 
         </div>
       </div>
-
-
-    )
+    );
   }
 
 }

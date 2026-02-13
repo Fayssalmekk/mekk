@@ -1,5 +1,7 @@
 import React from 'react';
 import './Gall.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import fly1 from '../../Assets/fly1.jpg'
 import fly2 from '../../Assets/fly2.jpg'
 import fly3 from '../../Assets/fly3.jpg'
@@ -20,7 +22,8 @@ import fly16 from '../../Assets/fly16.jpg'
 
 
 
-const { useState } = React;
+const { useState, useEffect } = React;
+
 
 //IMAGES
 //you can also import a local file, the syntax would look like:
@@ -34,21 +37,38 @@ const { useState } = React;
 const images = [fly1, fly2, fly3, fly4, fly5, fly6, fly7, fly8, fly9, fly10, fly11, fly12, fly13, fly14, fly15, fly16];
 
 
-//MAIN APP COMPONENT
-function Gall2() {
+//SKELETON LOADER
+function GallerySkeleton() {
   return (
-    <div  className="App container animation ">
-      <div className="skele ">
-        <div className=" skeleton mb-5">
-          
-        </div>
-      </div>
-
-
-      <ImageGallery />
+    <div className="gallery-skeleton-container">
+      {[...Array(16)].map((_, i) => (
+        <Skeleton key={i} width={350} height={350} borderRadius={20} style={{ margin: '10px' }} />
+      ))}
     </div>
   );
 }
+
+
+//MAIN APP COMPONENT
+function Gall2() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="App container animation ">
+      {loading ? (
+        <GallerySkeleton />
+      ) : (
+        <ImageGallery />
+      )}
+    </div>
+  );
+}
+
 
 
 //MAIN LIGHTBOX

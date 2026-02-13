@@ -6,6 +6,7 @@ import Gall2 from './Components/Gall/Gall2';
 import Gall3 from './Components/Gall/Gall3';
 import Gall4 from './Components/Gall/Gall4';
 import AdminPanel from './Components/Cv/AdminPanel';
+import ITServices from './Components/ITServices/ITServices';
 import "./index.css"
 
 
@@ -45,7 +46,7 @@ class App extends Component {
 
             </Route>
             <Route exact path="/admin0" >
-              <AdminPanel onClose={() => window.history.back()} data={{}} onDataUpdate={() => {}} />
+              <AdminPanel fullpage={true} onClose={() => window.history.back()} data={{}} onDataUpdate={() => {}} />
             </Route>
             <Route exact path="/ui-ux">
 
@@ -75,11 +76,18 @@ class App extends Component {
               <Gall4/>
 
             </Route>
+            <Route exact path="/it-services">
+
+              <Banner />
+              <NavBar2 />
+              <ITServices/>
+
+            </Route>
 
 
 
           </Switch>
-          <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>
+          {window.location.pathname !== '/admin0' && <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>}
         </div>
 
       </Router>

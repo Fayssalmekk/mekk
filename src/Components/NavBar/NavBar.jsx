@@ -42,6 +42,7 @@ class NavBar2 extends Component {
 
 
             <NavLink className="link" activeClassName="active_link" to="/about-me"><i className="ico  pl-2 fa fa-address-card"></i> <span className="block"> About me</span></NavLink>
+            <NavLink className="link" activeClassName="active_link" to="/it-services"><i className="ico pl-2 fa fa-cogs"></i> <span className="block">IT Services</span></NavLink>
             <NavLink className="link" activeClassName="active_link" to="/ui-ux"><i className="ico pl-2 fa fa-desktop"></i> <span className="block">UI/UX</span></NavLink>
             <NavLink className="link" activeClassName="active_link" to="/prints"> <i className="ico pl-2 fa fa-map-o"></i> <span className="block">Prints</span></NavLink>
             <NavLink className="link" activeClassName="active_link" to="/logos"> <i className="ico pl-2 fa fa-flag"></i> <span className="block">Logos</span></NavLink>

@@ -49,11 +49,61 @@ class Cv extends React.Component {
         }
     }
 
+    renderLoadingSkeleton = () => {
+        return (
+            <div className="cv body animation">
+                <body className="container mt-3 bg-light">
+                    <div className="h-10 bg-white border-0 mb-5 shadow-sm">
+                        <div className="card-body d-flex align-items-center justify-content-start p-5 flex-sm-column flex-column flex-md-row">
+                            <Skeleton circle={true} width={200} height={200} style={{ marginBottom: '16px' }} />
+                            <div style={{ marginLeft: '32px', flex: 1 }}>
+                                <Skeleton width="50%" height={40} style={{ marginBottom: '8px' }} />
+                                <Skeleton width="40%" height={20} style={{ marginBottom: '16px' }} />
+                                <div className="d-flex gap-2">
+                                    {[...Array(4)].map((_, i) => (
+                                        <Skeleton key={i} circle={true} width={40} height={40} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="row pb-5">
+                            <div className="col-12 col-lg-8 overflow-auto">
+                                {[...Array(3)].map((_, i) => (
+                                    <div key={i} className="card rounded border-0 mb-3 shadow-sm p-3">
+                                        <div className="card-body">
+                                            <Skeleton width="30%" height={28} style={{ marginBottom: '16px' }} />
+                                            {[...Array(3)].map((_, j) => (
+                                                <Skeleton key={j} count={2} style={{ marginBottom: '12px', height: 16 }} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="col-0 col-lg-4 overflow-auto">
+                                {[...Array(5)].map((_, i) => (
+                                    <div key={i} className="card border-0 rounded shadow-sm mb-3 p-3">
+                                        <div className="card-body">
+                                            <Skeleton width="40%" height={24} style={{ marginBottom: '12px' }} />
+                                            <Skeleton count={3} height={16} style={{ marginBottom: '8px' }} />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </div>
+        );
+    }
+
     render() {
         const { data: cvData, loading } = this.state;
         
         if (loading) {
-            return <div className="text-center p-5">Loading...</div>;
+            return this.renderLoadingSkeleton();
         }
 
         return (

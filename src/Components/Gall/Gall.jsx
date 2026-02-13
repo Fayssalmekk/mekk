@@ -1,5 +1,7 @@
 import React from 'react';
 import './Gall.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import ui10 from '../../Assets/ui10.jpg'
 import ui2 from '../../Assets/ui2.jpg'
 import ui3 from '../../Assets/ui3.jpg'
@@ -17,7 +19,7 @@ import ui9 from '../../Assets/ui9.jpg'
 
 
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 
 
@@ -30,22 +32,39 @@ const { useState } = React;
 const images = [ui2, ui3, ui4, ui5, ui6, ui7, ui8, ui9, ui10 , ui11 , ui14 , ui13];
 
 
-//MAIN APP COMPONENT
-function Gall() {
+//SKELETON LOADER
+function GallerySkeleton() {
   return (
-
-    <div className="App container animation ">
-      <div className="skele">
-      <div className=" skeleton mb-5">
-          
-        </div>
-      </div>
-
-
-      <ImageGallery />
+    <div className="gallery-skeleton-container">
+      {[...Array(12)].map((_, i) => (
+        <Skeleton key={i} width={350} height={350} borderRadius={20} style={{ margin: '10px' }} />
+      ))}
     </div>
   );
 }
+
+
+//MAIN APP COMPONENT
+function Gall() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay or load images
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="App container animation ">
+      {loading ? (
+        <GallerySkeleton />
+      ) : (
+        <ImageGallery />
+      )}
+    </div>
+  );
+}
+
 
 
 //MAIN LIGHTBOX
