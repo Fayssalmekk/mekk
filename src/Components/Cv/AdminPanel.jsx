@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css';
 import data from './data';
+import { getCVData, saveCVData } from '../../services/firebaseService';
 
-
-const ADMIN_PASSWORD = process.env.APP_PASSWORD || "123";
-
-
-if (!ADMIN_PASSWORD) throw new Error("Missing APP_PASSWORD env var");
+// Note: For production, this should be validated server-side
+// eslint-disable-next-line no-process-env
+const ADMIN_PASSWORD = process.env.REACT_APP_ADMIN_PASSWORD || "admin123";
 
 const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}, fullpage = false }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,17 +14,33 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
   const [activeTab, setActiveTab] = useState('projects');
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Load data from localStorage, or use initial data, or fall back to default data
-    const savedData = localStorage.getItem('cvData');
-    if (savedData) {
-      setCurrentData(JSON.parse(savedData));
-    } else if (initialData && Object.keys(initialData).length > 0) {
-      setCurrentData(initialData);
-    } else {
-      setCurrentData(data);
-    }
+    // Load data from Firebase
+    const loadData = async () => {
+      try {
+        const firebaseData = await getCVData();
+        if (firebaseData) {
+          setCurrentData(firebaseData);
+        } else if (initialData && Object.keys(initialData).length > 0) {
+          setCurrentData(initialData);
+        } else {
+          setCurrentData(data);
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        // Fallback to local data
+        if (initialData && Object.keys(initialData).length > 0) {
+          setCurrentData(initialData);
+        } else {
+          setCurrentData(data);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
   }, [initialData]);
 
   const handlePasswordSubmit = (e) => {
@@ -39,11 +54,20 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     }
   };
 
-  const saveData = (updatedData) => {
+  const saveData = async (updatedData) => {
     setCurrentData(updatedData);
-    localStorage.setItem('cvData', JSON.stringify(updatedData));
-    if (typeof onDataUpdate === 'function') {
-      onDataUpdate(updatedData);
+    try {
+      const success = await saveCVData(updatedData);
+      if (success) {
+        if (typeof onDataUpdate === 'function') {
+          onDataUpdate(updatedData);
+        }
+      } else {
+        alert('Error saving data. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error saving data:', error);
+      alert('Error saving data. Please try again.');
     }
   };
 
@@ -150,7 +174,7 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     );
   }
 
-  if (!currentData) {
+  if (!currentData || loading) {
     return <div className="text-center p-5">Loading...</div>;
   }
 

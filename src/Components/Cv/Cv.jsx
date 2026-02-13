@@ -3,20 +3,59 @@ import Logo2 from '../../Assets/Logo2.png';
 import data from './data';
 import Skeleton from 'react-loading-skeleton';
 import Profile from '../../Assets/profile.jpeg';
+import { database } from '../../firebase';
+import { ref, onValue } from 'firebase/database';
 
 import "./Cv.css"
 
 class Cv extends React.Component {
     constructor(props) {
         super(props);
-        const savedData = localStorage.getItem('cvData');
         this.state = {
-            data: savedData ? JSON.parse(savedData) : data
+            data: data,
+            loading: true
         };
+        this.unsubscribe = null;
+    }
+
+    componentDidMount() {
+        this.loadCVData();
+    }
+
+    componentWillUnmount() {
+        // Unsubscribe from real-time updates when component unmounts
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
+    }
+
+    loadCVData = () => {
+        try {
+            const dbRef = ref(database, 'cv_data');
+            // Set up real-time listener
+            this.unsubscribe = onValue(dbRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    this.setState({ data: snapshot.val(), loading: false });
+                } else {
+                    this.setState({ data: data, loading: false });
+                }
+            }, (error) => {
+                console.error('Error loading CV data:', error);
+                this.setState({ data: data, loading: false });
+            });
+        } catch (error) {
+            console.error('Error setting up listener:', error);
+            this.setState({ data: data, loading: false });
+        }
     }
 
     render() {
-        const { data: cvData } = this.state;
+        const { data: cvData, loading } = this.state;
+        
+        if (loading) {
+            return <div className="text-center p-5">Loading...</div>;
+        }
+
         return (
             <div className="cv body animation ">
                 <body className="container  mt-3 bg-light">
