@@ -5,6 +5,7 @@ import NavBar2 from './Components/NavBar/NavBar';
 import Gall2 from './Components/Gall/Gall2';
 import Gall3 from './Components/Gall/Gall3';
 import Gall4 from './Components/Gall/Gall4';
+import AdminPanel from './Components/Cv/AdminPanel';
 import "./index.css"
 
 
@@ -27,12 +28,13 @@ class App extends Component {
     return (
       
       <Router>
-        <h1 className="none" >FAYSSAL EL MEKKAOUI PORTFOLIO INPT GRAPHIC DESIGNER</h1>
+        <h1 className="none" >FAYSSAL EL MEKKAOUI PORTFOLIO INPT GRAPHIC DESIGNER DEVOPS ENGINEER CLOUD KUBERNETES DOCKER AUTOMATION</h1>
         <div className="app ">
           
-          <Redirect from="/" to="about-me" />
-          
           <Switch>
+            <Route exact path="/" >
+              <Redirect to="/about-me" />
+            </Route>
 
             <Route exact path="/about-me" >
 
@@ -41,6 +43,9 @@ class App extends Component {
               <Cv />
            
 
+            </Route>
+            <Route exact path="/admin0" >
+              <AdminPanel onClose={() => window.history.back()} data={{}} onDataUpdate={() => {}} />
             </Route>
             <Route exact path="/ui-ux">
 

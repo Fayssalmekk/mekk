@@ -1,5 +1,5 @@
 .name {
-  color: darkorchid;
+  color: #4a2a96;
   font-size: 37px;
   font-weight: 700;
 }
@@ -57,7 +57,7 @@
 
 .card-title {
   font-weight: 600;
-  color: blueviolet;
+  color: #4a2a96;
 }
 
 @media (max-width: 600px) {

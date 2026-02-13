@@ -28,7 +28,7 @@ li:not(:last-child) {
   margin-bottom: 10px;
 }
 .faa {
-  color: rgb(119, 8, 184);
+  color: #4a2a96;
 }
 
 .ichover:hover {
@@ -101,7 +101,7 @@ li:not(:last-child) {
 }
 
 #typing {
-  color: rgb(191, 169, 243);
+  color: rgb(183, 155, 250);
   float: left;
 
   overflow: hidden;

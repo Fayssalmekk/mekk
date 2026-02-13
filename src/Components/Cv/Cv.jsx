@@ -4,23 +4,21 @@ import data from './data';
 import Skeleton from 'react-loading-skeleton';
 import Profile from '../../Assets/profile.jpeg';
 
-
-
-
-
-
 import "./Cv.css"
 
 class Cv extends React.Component {
+    constructor(props) {
+        super(props);
+        const savedData = localStorage.getItem('cvData');
+        this.state = {
+            data: savedData ? JSON.parse(savedData) : data
+        };
+    }
 
     render() {
+        const { data: cvData } = this.state;
         return (
             <div className="cv body animation ">
-
-
-
-
-
                 <body className="container  mt-3 bg-light">
                     <div className=" h-10  bg-white border-0 mb-5 shadow-sm">
                         <div className=" card-body d-flex align-items-center justify-content-start p-5 flex-sm-column flex-column flex-md-row">
@@ -39,19 +37,19 @@ class Cv extends React.Component {
             mb-5
             mb-md-0
           ">
-                                <h1 className="name  ml-md-5 mb-0">{data.name || <Skeleton/>}</h1>
-                                <p className="job ml-md-5 mb-md-4 mt-1">{data.title || <Skeleton/>}</p>
+                                <h1 className="name  ml-md-5 mb-0">{cvData.name || <Skeleton/>}</h1>
+                                <p className="job ml-md-5 mb-md-4 mt-1">{cvData.title || <Skeleton/>}</p>
                                 <div className="d-flex align-items-center justify-content-between">
-                                    <button onClick={() => window.open("https://www.github.com/Fayssalmekk")} className="btn btn-dark rounded-circle ml-md-5 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button onClick={() => window.open(cvData.github)} className="btn btn-dark rounded-circle ml-md-5 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         {<i className=" fa fa-github"></i> || <Skeleton circle={true} width={40} height={40} /> }
                                     </button>
-                                    <button onClick={() => window.open("https://www.linkedin.com/in/fayssal-el-mekkaoui-33bb90198/")} className="btn btn-primary rounded-circle ms-2 ml-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button onClick={() => window.open(cvData.linkedin)} className="btn btn-primary rounded-circle ms-2 ml-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-linkedin"></i>
                                     </button>
-                                    <button onClick={() => window.open("https://www.instagram.com/art.mekk/")} className="btn btn-danger rounded-circle ms-2 fs-4 ml-2 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button onClick={() => window.open(cvData.instagram)} className="btn btn-danger rounded-circle ms-2 fs-4 ml-2 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-instagram"></i>
                                     </button>
-                                    <button onClick={() => window.open("https://www.facebook.com/fayssal.elmekkaoui")} className="btn btn-info text-white rounded-circle ml-2 ms-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
+                                    <button onClick={() => window.open(cvData.facebook)} className="btn btn-info text-white rounded-circle ml-2 ms-2 fs-4 p-0" style={{ height: "40px", width: "40px" }}>
                                         <i className=" fa fa-facebook "></i>
                                     </button>
                                 </div>
@@ -71,11 +69,7 @@ class Cv extends React.Component {
                                     <div className="card-body">
                                         <h2 className="card-title fs-1 mb-5 fw-bold"><i className="fa fa-user"> </i> About Me</h2>
                                         <p className="card-text">
-                                            I am Fayssal El MEkkaoui, im 24 years old Cloud and DevOps Engineer at 4D,
-                                            I have got my engineering degree from the National Institut of Posts and
-                                            Telecommunication Rabat, Morocco,I am also pasionate with graphic design,
-                                            you find here some of my works and projects :) enjoy.
-
+                                            {cvData.about}
                                         </p>
                                     </div>
                                     <hr className="my-1" />
@@ -86,46 +80,16 @@ class Cv extends React.Component {
                                     <div className="card-body">
                                         <h2 className="card-title mb-5 fs-1 fw-bold"><i className="fa fa-rocket"> </i> Projects</h2>
                                         <div>
-                                            <p>
-                                                <a href="https://github.com/Fayssalmekk/RoadSignDetect"> <span className="fw-bold  fs-5"></span><span className="txthead">&bull; ROAD SIGNS DETECTION : <i className="fa fa-external-link "> </i> </span> </a>
-                                            </p>
-                                            <p>
-                                                Detection of road signs and return their values using Opencv and Python.
-
-                                            </p>
-                                        </div>
-                                        <div className="mt-3">
-                                            <p>
-                                                 <a href="https://github.com/Fayssalmekk/ProjetData_Spark"> <span className="txthead">&bull; DATA-MINING and MACHINE LEARNING : <i className="fa fa-external-link "> </i> </span></a>
-                                            </p>
-                                            <p>
-                                                Analysing ahotel boking dataset and predict booking cancelations.
-                                            </p>
-                                        </div>
-                                        <div className="mt-3">
-                                            <p>
-                                                 <a href="https://github.com/Modern-Stream/modern_stream_ui"> <span className="fw-bold  fs-5"></span><span className="txthead">&bull; VIDEO GAMES STREAMING PLATEORME : <i className="fa fa-external-link "> </i> </span></a>
-                                            </p>
-                                            <p>
-                                                Building a Streaming plateforme for gamers using ReactJs, Nodejs, AWS ...
-
-                                            </p>
-                                        </div>
-                                        <div className="mt-3">
-                                            <p>
-                                                  <a href="https://drive.google.com/file/d/1H4hw7WvHj2D8BwSRcO2jLX6aHt3pLpW1/view?usp=sharing"> <span className="txthead">&bull; NETWORK SECURITY : <i className="fa fa-external-link "> </i> </span></a>
-                                            </p>
-                                            <p>
-                                                Securing different equipments of a networkinfrastructure using Cisco packet tracer.
-                                            </p>
-                                        </div>
-                                        <div className="mt-3">
-                                            <p>
-                                                  <a href="/ui-ux"> <span className="txthead">&bull; UI/UX Projects: <i className="fa fa-external-link "> </i> </span></a>
-                                            </p>
-                                            <p>
-                                                  Creating web and mobile prototypes for several projects : Photoshop | Adobe XD | Figma   
-                                            </p>
+                                            {cvData.projects && cvData.projects.map((project, index) => (
+                                                <div key={project.id || index} className={index > 0 ? "mt-3" : ""}>
+                                                    <p>
+                                                        <a href={project.link}> <span className="fw-bold  fs-5"></span><span className="txthead">&bull; {project.title} : <i className="fa fa-external-link "> </i> </span> </a>
+                                                    </p>
+                                                    <p>
+                                                        {project.description}
+                                                    </p>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                     <hr className="my-1" />
@@ -137,20 +101,16 @@ class Cv extends React.Component {
                                     <div className="card-body">
                                         <h2 className="card-title fs-1 mb-5 fw-bold"><i className="fa fa-suitcase "> </i> Experience</h2>
                                         <div>
-                                            <p>
-                                                <span className="fw-bold  fs-5"></span><span className="txthead">&bull; Freelancer at <a href="https://www.inetech.ml">inetech.ml</a><span className="text-muted"> (2020 - current)</span>  </span>
-                                            </p>
-                                            <p>
-                                                Working with a team of developers and graphic designers to satisfy our clients needs in Digiital services ( Websites, UI/UX, WebApps ...)
-                                            </p>
-                                        </div>
-                                        <div className="mt-3">
-                                            <p>
-                                                <span className="txthead">&bull; Internship <a href="https://www.Esport-Academy.ma">Esport-Academy.ma</a><span className="text-muted"> (July - Septembre 2021) </span></span>
-                                            </p>
-                                            <p>
-                                                Working with a team to build a streaming plateform for videogames + Prototyping
-                                            </p>
+                                            {cvData.experience && cvData.experience.map((exp, index) => (
+                                                <div key={exp.id || index} className={index !== 0 ? "mt-3" : ""}>
+                                                    <p>
+                                                        <span className="fw-bold  fs-5"></span><span className="txthead">&bull; {exp.position} at <a href={exp.link}>{exp.company}</a><span className="text-muted"> ({exp.month || exp.startYear} - {exp.endYear})</span>  </span>
+                                                    </p>
+                                                    <p>
+                                                        {exp.description}
+                                                    </p>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
 
@@ -168,15 +128,15 @@ class Cv extends React.Component {
                 ">
                                             <div className="d-flex align-items-center justify-content-center mb-2">
                                                 <i className="  faa fa fa-map-marker"> </i>
-                                                <span className="ms-2 ml-3"> Safi, Morocco</span>
+                                                <span className="ms-2 ml-3"> {cvData.location}</span>
                                             </div>
                                             <div className="d-flex align-items-center justify-content-center mb-2">
                                                 <i className="faa fa fa-envelope"></i>
-                                                <a href="mailto:fayssalelmekkaouui@gmail.com" className="ms-2 ml-2 text-decoration-none text-dark">fayssalelmekkaoui@gmail.com</a>
+                                                <a href={`mailto:${cvData.email}`} className="ms-2 ml-2 text-decoration-none text-dark">{cvData.email}</a>
                                             </div>
                                             <div className="d-flex align-items-center justify-content-center mb-2">
                                                 <i className="faa fa fa-phone"></i>
-                                                <a href="https://www.google.com" className="ms-2 ml-2 text-decoration-none text-dark">+212 6 37 21 20 54</a>
+                                                <a href="https://www.google.com" className="ms-2 ml-2 text-decoration-none text-dark">{cvData.phone}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -188,21 +148,9 @@ class Cv extends React.Component {
                                             <div>
                                                 <div className="border-start border-5 border-primary ps-4">
                                                     <p>
-                                                        <p>Python, java, c </p>
-                                                        <p>MySql, mongoDb</p>
-                                                        <p>Data mining</p>
-                                                        <p>DevOps : Git, Jenkins, Docker </p>
-                                                        <p>Html, css , Reactjs</p>
-                                                        <p>Bootstrap</p>
-                                                        <p>Embaded : OpenCv</p>
-                                                        <p>OS : Linux, Windows</p>
-                                                        <p> Adobe Photoshop , XD , Pr</p>
-                                                        
-                        
-                                                       
-                                                        
-                                                        
-
+                                                        {cvData.skills && cvData.skills.map((skill, index) => (
+                                                            <p key={index}>{skill}</p>
+                                                        ))}
                                                     </p>
                                                 </div>
 
@@ -224,8 +172,9 @@ class Cv extends React.Component {
                     justify-content-center
                     ms-3
                   ">
-                                                <p className="card-text">&bull; INPT - RABAT (2019 - Current) </p>
-                                                <p className="card-text">&bull; PREPARATORY CLASSES (2017 - 2019</p>
+                                                {cvData.education && cvData.education.map((edu, index) => (
+                                                    <p key={edu.id || index} className="card-text">&bull; {edu.school} ({edu.years}) </p>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
@@ -240,15 +189,11 @@ class Cv extends React.Component {
                   justify-content-center
                   mb-3
                 ">
-                                            <p className=" mb-1">
-                                                <span className="card-text">Arabic </span><span className="stars"> ★★★★★</span>
-                                            </p>
-                                            <p className=" mb-1">
-                                                <span className="card-text">English </span><span className="stars"> ★★★★☆</span>
-                                            </p>
-                                            <p className=" mb-1">
-                                                <span className="card-text">French </span><span className="stars"> ★★★★☆</span>
-                                            </p>
+                                            {cvData.languages && cvData.languages.map((lang, index) => (
+                                                <p key={lang.id || index} className=" mb-1">
+                                                    <span className="card-text">{lang.language} </span><span className="stars"> {'★'.repeat(lang.level)}{'☆'.repeat(5 - lang.level)}</span>
+                                                </p>
+                                            ))}
                                             <div className="
                     d-flex
                     align-items-center
@@ -265,7 +210,7 @@ class Cv extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <button onClick={() => { window.location.href = "https://drive.google.com/file/d/1y8sP0FLvtZzMXTen7peyy6_PSYiFF7xJ/view?usp=sharing" }} className="text-center button" href="www.google.com" > <i className="fa fa-download">  </i>  Download My CV </button>
+                                    <button onClick={() => { window.location.href = cvData.cvLink }} className="text-center button" > <i className="fa fa-download">  </i>  Download My CV </button>
                                 </div>
                             </div>
 
