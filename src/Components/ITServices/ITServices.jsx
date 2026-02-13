@@ -49,10 +49,10 @@ class ITServices extends React.Component {
         return (
             <div className="it-services-page animation">
                 <div className="it-container">
-                    <h1 className="it-title">IT Services</h1>
+              
                     
                     <div className="it-section">
-                        <h2 className="it-section-title">Tools & Technologies</h2>
+                        <h2 className="it-section-title">My technical stack:</h2>
                         <div className="it-tools-grid">
                             {[...Array(15)].map((_, i) => (
                                 <Skeleton key={i} width="100%" height={120} borderRadius={12} />
@@ -85,10 +85,10 @@ class ITServices extends React.Component {
         return (
             <div className="it-services-page animation">
                 <div className="it-container">
-                    <h1 className="it-title">IT Services & Technologies</h1>
+                   
                     
                     <div className="it-section">
-                        <h2 className="it-section-title">Tools & Technologies</h2>
+                        <h2 className="it-section-title">My technical stack:</h2>
                         <div className="it-tools-grid">
                             {itServices && itServices.tools && itServices.tools.map((tool, index) => (
                                 <div key={index} className="it-tool-card">

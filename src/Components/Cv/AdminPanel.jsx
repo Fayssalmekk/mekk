@@ -512,11 +512,13 @@ function SectionList({ title, sectionKey, currentData, editingId, editForm, onEd
                     {Object.keys(item).map((key) => (
                       <div key={key} className="mb-2">
                         <label className="form-label text-capitalize">{key}</label>
-                        {key === 'description' ? (
-                          <textarea className="form-control" rows="3" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
-                        ) : (
-                          <input className="form-control" type={key.includes('year') || key === 'level' ? 'number' : 'text'} value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
-                        )}
+                          {key === 'description' ? (
+                            <textarea className="form-control" rows="3" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                          ) : key === 'years' ? (
+                            <input className="form-control" type="text" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                          ) : (
+                            <input className="form-control" type={key.includes('year') || key === 'level' ? 'number' : 'text'} value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                          )}
                       </div>
                     ))}
                     <div>
