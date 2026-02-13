@@ -511,6 +511,75 @@
   gap: 10px;
 }
 
+/* Layout improvements: centered panel, constrained content and responsive grids */
+.admin-panel {
+  max-width: 1100px;
+  margin: 24px auto;
+}
+
+.admin-body {
+  display: flex;
+  justify-content: center;
+  padding: 40px 40px;
+}
+
+.admin-body > .admin-content,
+.admin-body > .card,
+.admin-body > .admin-list,
+.admin-body > div {
+  width: 100%;
+  max-width: 980px;
+}
+
+.admin-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .admin-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .admin-content {
+    margin-bottom: 28px;
+  }
+}
+
+/* Modern tab look for bootstrap nav tabs used in component */
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  padding-left: 0;
+}
+.nav-tabs .nav-item .nav-link {
+  border: none;
+  background: transparent;
+  color: #475569;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.nav-tabs .nav-item .nav-link.active {
+  background: linear-gradient(90deg, rgba(102,126,234,0.12), rgba(118,75,162,0.04));
+  color: #2b2f78;
+  box-shadow: 0 6px 18px rgba(102,126,234,0.06);
+}
+
+@media (max-width: 768px) {
+  .admin-panel {
+    margin: 12px;
+    border-radius: 12px;
+  }
+  .admin-body {
+    padding: 20px 16px;
+    justify-content: stretch;
+  }
+  .admin-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .admin-header {

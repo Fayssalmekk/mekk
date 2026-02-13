@@ -5,15 +5,14 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getCVData, saveCVData } from '../../services/firebaseService';
 import { auth } from '../../firebase';
-import { signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {  signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 // Optional admin email restriction
 const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL || null;
 
 const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}, fullpage = false }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // Removed email/password state, only Google auth
   const [currentData, setCurrentData] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({});
@@ -46,24 +45,7 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     return () => unsubscribe();
   }, []);
 
-  const handlePasswordSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      if (ADMIN_EMAIL && user.email !== ADMIN_EMAIL) {
-        alert('This account is not authorized as admin.');
-        await signOut(auth);
-        return;
-      }
-      setEmail('');
-      setPassword('');
-      setIsAuthenticated(true);
-    } catch (err) {
-      console.error('Sign in failed', err);
-      alert('Sign in failed.');
-    }
-  };
+  // Removed email/password submit handler
 
   const handleGoogleSignIn = async () => {
     try {
@@ -244,26 +226,32 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     </div>
   );
 
+
+  // Tab state for section navigation (must be at top level, not inside conditional)
+  const [activeTab, setActiveTab] = useState('basic');
+  const tabList = [
+    { key: 'basic', label: 'Basic Info' },
+    { key: 'tools', label: 'IT Tools' },
+    { key: 'certs', label: 'Certifications' },
+    { key: 'projects', label: 'Projects' },
+    { key: 'experience', label: 'Experience' },
+    { key: 'education', label: 'Education' },
+    { key: 'languages', label: 'Languages' },
+    { key: 'skills', label: 'Skills' },
+  ];
+
   if (!isAuthenticated) {
     return (
       <div className="admin-login-overlay">
         <div className="admin-login-modal">
           <h2>Admin Sign In</h2>
-          <form onSubmit={handlePasswordSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Password</label>
-              <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <div className="d-flex" style={{ gap: 8 }}>
-              <button className="btn btn-primary" type="submit">Sign in</button>
-              <button type="button" className="google-btn" onClick={handleGoogleSignIn}><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G" /> Google</button>
-              <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
-            </div>
-          </form>
+          <div className="d-flex flex-column align-items-center" style={{ gap: 16 }}>
+            <button type="button" className="google-btn" onClick={handleGoogleSignIn}>
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G" style={{ marginRight: 8 }} />
+              Sign in with Google
+            </button>
+            <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
+          </div>
         </div>
       </div>
     );
@@ -286,195 +274,226 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
           </div>
         </div>
 
+        {/* Tab Navigation */}
+        <ul className="nav nav-tabs mb-3" style={{ borderBottom: '2px solid #eee' }}>
+          {tabList.map(tab => (
+            <li className="nav-item" key={tab.key}>
+              <button
+                className={`nav-link${activeTab === tab.key ? ' active' : ''}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() => setActiveTab(tab.key)}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+
         <div className="admin-body">
           {/* Basic Info */}
-          <div className="admin-content mb-4">
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h3>Basic Info</h3>
-              <button className="btn btn-success btn-sm" onClick={handleBasicSave}>Save</button>
-            </div>
-            <div className="card p-3 mb-3">
-              <div className="mb-2">
-                <label className="form-label">Name</label>
-                <input className="form-control" value={currentData.name || ''} onChange={(e) => setCurrentData({ ...currentData, name: e.target.value })} />
+          {activeTab === 'basic' && (
+            <div className="admin-content mb-4">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h3>Basic Info</h3>
+                <button className="btn btn-success btn-sm" onClick={handleBasicSave}>Save</button>
               </div>
-              <div className="mb-2">
-                <label className="form-label">Title</label>
-                <input className="form-control" value={currentData.title || ''} onChange={(e) => setCurrentData({ ...currentData, title: e.target.value })} />
-              </div>
-              <div className="mb-2">
-                <label className="form-label">About</label>
-                <textarea className="form-control" rows="4" value={currentData.about || ''} onChange={(e) => setCurrentData({ ...currentData, about: e.target.value })} />
-              </div>
-              <div className="d-flex gap-2">
-                <input className="form-control" placeholder="Location" value={currentData.location || ''} onChange={(e) => setCurrentData({ ...currentData, location: e.target.value })} />
-                <input className="form-control" placeholder="Email" value={currentData.email || ''} onChange={(e) => setCurrentData({ ...currentData, email: e.target.value })} />
-                <input className="form-control" placeholder="Phone" value={currentData.phone || ''} onChange={(e) => setCurrentData({ ...currentData, phone: e.target.value })} />
-              </div>
-            </div>
-          </div>
-
-          {/* IT Services */}
-          <div className="admin-content mb-4">
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h3>IT Services - Tools</h3>
-              <button className="btn btn-success btn-sm" onClick={handleAddTool}>Add Tool</button>
-            </div>
-            <div className="admin-list">
-              {currentData.itServices && currentData.itServices.tools && currentData.itServices.tools.map((tool, index) => (
-                <div key={`tool-${index}`} className="admin-item mb-3 p-3">
-                  {editingId === `tool-${index}` ? (
-                    <div className="edit-form">
-                      <div className="mb-2">
-                        <label className="form-label">Tool Name</label>
-                        <input className="form-control" value={editForm.name || ''} onChange={(e) => handleInputChange(e, 'name')} />
-                      </div>
-                      <div className="mb-2">
-                        <label className="form-label">Icon URL</label>
-                        <input className="form-control" value={editForm.icon || ''} onChange={(e) => handleInputChange(e, 'icon')} />
-                      </div>
-                      <div>
-                        <button className="btn btn-primary btn-sm me-2" onClick={() => handleSaveTool(index)}>Save</button>
-                        <button className="btn btn-secondary btn-sm" onClick={() => { setEditingId(null); setEditForm({}); }}>Cancel</button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="d-flex justify-content-between align-items-start">
-                      <div className="flex-grow-1">
-                        <h5 className="mb-2">{tool.name}</h5>
-                        {tool.icon && <small className="text-secondary">{tool.icon.substring(0, 50)}...</small>}
-                      </div>
-                      <div className="btn-group-sm">
-                        <button className="btn btn-warning btn-sm me-1" onClick={() => handleEditTool(index)}><i className="fa fa-edit"></i></button>
-                        <button className="btn btn-danger btn-sm" onClick={() => handleDeleteTool(index)}><i className="fa fa-trash"></i></button>
-                      </div>
-                    </div>
-                  )}
+              <div className="card p-3 mb-3">
+                <div className="mb-2">
+                  <label className="form-label">Name</label>
+                  <input className="form-control" value={currentData.name || ''} onChange={(e) => setCurrentData({ ...currentData, name: e.target.value })} />
                 </div>
-              ))}
+                <div className="mb-2">
+                  <label className="form-label">Title</label>
+                  <input className="form-control" value={currentData.title || ''} onChange={(e) => setCurrentData({ ...currentData, title: e.target.value })} />
+                </div>
+                <div className="mb-2">
+                  <label className="form-label">About</label>
+                  <textarea className="form-control" rows="4" value={currentData.about || ''} onChange={(e) => setCurrentData({ ...currentData, about: e.target.value })} />
+                </div>
+                <div className="d-flex gap-2">
+                  <input className="form-control" placeholder="Location" value={currentData.location || ''} onChange={(e) => setCurrentData({ ...currentData, location: e.target.value })} />
+                  <input className="form-control" placeholder="Email" value={currentData.email || ''} onChange={(e) => setCurrentData({ ...currentData, email: e.target.value })} />
+                  <input className="form-control" placeholder="Phone" value={currentData.phone || ''} onChange={(e) => setCurrentData({ ...currentData, phone: e.target.value })} />
+                </div>
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* IT Services - Tools */}
+          {activeTab === 'tools' && (
+            <div className="admin-content mb-4">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h3>IT Services - Tools</h3>
+                <button className="btn btn-success btn-sm" onClick={handleAddTool}>Add Tool</button>
+              </div>
+              <div className="admin-list">
+                {currentData.itServices && currentData.itServices.tools && currentData.itServices.tools.map((tool, index) => (
+                  <div key={`tool-${index}`} className="admin-item mb-3 p-3">
+                    {editingId === `tool-${index}` ? (
+                      <div className="edit-form">
+                        <div className="mb-2">
+                          <label className="form-label">Tool Name</label>
+                          <input className="form-control" value={editForm.name || ''} onChange={(e) => handleInputChange(e, 'name')} />
+                        </div>
+                        <div className="mb-2">
+                          <label className="form-label">Icon URL</label>
+                          <input className="form-control" value={editForm.icon || ''} onChange={(e) => handleInputChange(e, 'icon')} />
+                        </div>
+                        <div>
+                          <button className="btn btn-primary btn-sm me-2" onClick={() => handleSaveTool(index)}>Save</button>
+                          <button className="btn btn-secondary btn-sm" onClick={() => { setEditingId(null); setEditForm({}); }}>Cancel</button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="d-flex justify-content-between align-items-start">
+                        <div className="flex-grow-1">
+                          <h5 className="mb-2">{tool.name}</h5>
+                          {tool.icon && <small className="text-secondary">{tool.icon.substring(0, 50)}...</small>}
+                        </div>
+                        <div className="btn-group-sm">
+                          <button className="btn btn-warning btn-sm me-1" onClick={() => handleEditTool(index)}><i className="fa fa-edit"></i></button>
+                          <button className="btn btn-danger btn-sm" onClick={() => handleDeleteTool(index)}><i className="fa fa-trash"></i></button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* IT Services - Certifications */}
-          <div className="admin-content mb-4">
-            <div className="d-flex justify-content-between align-items-center mb-3">
-              <h3>IT Services - Certifications</h3>
-              <button className="btn btn-success btn-sm" onClick={handleAddCertification}>Add Certification</button>
+          {activeTab === 'certs' && (
+            <div className="admin-content mb-4">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h3>IT Services - Certifications</h3>
+                <button className="btn btn-success btn-sm" onClick={handleAddCertification}>Add Certification</button>
+              </div>
+              <div className="admin-list">
+                {currentData.itServices && currentData.itServices.certifications && currentData.itServices.certifications.map((cert, index) => (
+                  <div key={`cert-${index}`} className="admin-item mb-3 p-3">
+                    {editingId === `cert-${index}` ? (
+                      <div className="edit-form">
+                        <div className="mb-2">
+                          <label className="form-label">Certification Name</label>
+                          <input className="form-control" value={editForm.name || ''} onChange={(e) => handleInputChange(e, 'name')} />
+                        </div>
+                        <div className="mb-2">
+                          <label className="form-label">Issuer</label>
+                          <input className="form-control" value={editForm.issuer || ''} onChange={(e) => handleInputChange(e, 'issuer')} />
+                        </div>
+                        <div className="mb-2">
+                          <label className="form-label">Year</label>
+                          <input className="form-control" type="number" value={editForm.year || ''} onChange={(e) => handleInputChange(e, 'year')} />
+                        </div>
+                        <div>
+                          <button className="btn btn-primary btn-sm me-2" onClick={() => handleSaveCertification(index)}>Save</button>
+                          <button className="btn btn-secondary btn-sm" onClick={() => { setEditingId(null); setEditForm({}); }}>Cancel</button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="d-flex justify-content-between align-items-start">
+                        <div className="flex-grow-1">
+                          <h5 className="mb-2">{cert.name}</h5>
+                          <p className="text-muted mb-1">{cert.issuer}</p>
+                          <small className="text-secondary">{cert.year}</small>
+                        </div>
+                        <div className="btn-group-sm">
+                          <button className="btn btn-warning btn-sm me-1" onClick={() => handleEditCertification(index)}><i className="fa fa-edit"></i></button>
+                          <button className="btn btn-danger btn-sm" onClick={() => handleDeleteCertification(index)}><i className="fa fa-trash"></i></button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="admin-list">
-              {currentData.itServices && currentData.itServices.certifications && currentData.itServices.certifications.map((cert, index) => (
-                <div key={`cert-${index}`} className="admin-item mb-3 p-3">
-                  {editingId === `cert-${index}` ? (
-                    <div className="edit-form">
-                      <div className="mb-2">
-                        <label className="form-label">Certification Name</label>
-                        <input className="form-control" value={editForm.name || ''} onChange={(e) => handleInputChange(e, 'name')} />
-                      </div>
-                      <div className="mb-2">
-                        <label className="form-label">Issuer</label>
-                        <input className="form-control" value={editForm.issuer || ''} onChange={(e) => handleInputChange(e, 'issuer')} />
-                      </div>
-                      <div className="mb-2">
-                        <label className="form-label">Year</label>
-                        <input className="form-control" type="number" value={editForm.year || ''} onChange={(e) => handleInputChange(e, 'year')} />
-                      </div>
-                      <div>
-                        <button className="btn btn-primary btn-sm me-2" onClick={() => handleSaveCertification(index)}>Save</button>
-                        <button className="btn btn-secondary btn-sm" onClick={() => { setEditingId(null); setEditForm({}); }}>Cancel</button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="d-flex justify-content-between align-items-start">
-                      <div className="flex-grow-1">
-                        <h5 className="mb-2">{cert.name}</h5>
-                        <p className="text-muted mb-1">{cert.issuer}</p>
-                        <small className="text-secondary">{cert.year}</small>
-                      </div>
-                      <div className="btn-group-sm">
-                        <button className="btn btn-warning btn-sm me-1" onClick={() => handleEditCertification(index)}><i className="fa fa-edit"></i></button>
-                        <button className="btn btn-danger btn-sm" onClick={() => handleDeleteCertification(index)}><i className="fa fa-trash"></i></button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          )}
 
           {/* Projects */}
-          <SectionList
-            title="Projects"
-            sectionKey="projects"
-            currentData={currentData}
-            editingId={editingId}
-            editForm={editForm}
-            onEdit={handleEdit}
-            onSaveEdit={handleSaveEdit}
-            onDelete={handleDeleteItem}
-            onAdd={handleAddItem}
-            onInputChange={handleInputChange}
-            onCancel={() => { setEditingId(null); setEditForm({}); }}
-          />
+          {activeTab === 'projects' && (
+            <SectionList
+              title="Projects"
+              sectionKey="projects"
+              currentData={currentData}
+              editingId={editingId}
+              editForm={editForm}
+              onEdit={handleEdit}
+              onSaveEdit={handleSaveEdit}
+              onDelete={handleDeleteItem}
+              onAdd={handleAddItem}
+              onInputChange={handleInputChange}
+              onCancel={() => { setEditingId(null); setEditForm({}); }}
+            />
+          )}
 
           {/* Experience */}
-          <SectionList
-            title="Experience"
-            sectionKey="experience"
-            currentData={currentData}
-            editingId={editingId}
-            editForm={editForm}
-            onEdit={handleEdit}
-            onSaveEdit={handleSaveEdit}
-            onDelete={handleDeleteItem}
-            onAdd={handleAddItem}
-            onInputChange={handleInputChange}
-            onCancel={() => { setEditingId(null); setEditForm({}); }}
-          />
+          {activeTab === 'experience' && (
+            <SectionList
+              title="Experience"
+              sectionKey="experience"
+              currentData={currentData}
+              editingId={editingId}
+              editForm={editForm}
+              onEdit={handleEdit}
+              onSaveEdit={handleSaveEdit}
+              onDelete={handleDeleteItem}
+              onAdd={handleAddItem}
+              onInputChange={handleInputChange}
+              onCancel={() => { setEditingId(null); setEditForm({}); }}
+            />
+          )}
 
           {/* Education */}
-          <SectionList
-            title="Education"
-            sectionKey="education"
-            currentData={currentData}
-            editingId={editingId}
-            editForm={editForm}
-            onEdit={handleEdit}
-            onSaveEdit={handleSaveEdit}
-            onDelete={handleDeleteItem}
-            onAdd={handleAddItem}
-            onInputChange={handleInputChange}
-            onCancel={() => { setEditingId(null); setEditForm({}); }}
-          />
+          {activeTab === 'education' && (
+            <SectionList
+              title="Education"
+              sectionKey="education"
+              currentData={currentData}
+              editingId={editingId}
+              editForm={editForm}
+              onEdit={handleEdit}
+              onSaveEdit={handleSaveEdit}
+              onDelete={handleDeleteItem}
+              onAdd={handleAddItem}
+              onInputChange={handleInputChange}
+              onCancel={() => { setEditingId(null); setEditForm({}); }}
+            />
+          )}
 
           {/* Languages */}
-          <SectionList
-            title="Languages"
-            sectionKey="languages"
-            currentData={currentData}
-            editingId={editingId}
-            editForm={editForm}
-            onEdit={handleEdit}
-            onSaveEdit={handleSaveEdit}
-            onDelete={handleDeleteItem}
-            onAdd={handleAddItem}
-            onInputChange={handleInputChange}
-            onCancel={() => { setEditingId(null); setEditForm({}); }}
-          />
+          {activeTab === 'languages' && (
+            <SectionList
+              title="Languages"
+              sectionKey="languages"
+              currentData={currentData}
+              editingId={editingId}
+              editForm={editForm}
+              onEdit={handleEdit}
+              onSaveEdit={handleSaveEdit}
+              onDelete={handleDeleteItem}
+              onAdd={handleAddItem}
+              onInputChange={handleInputChange}
+              onCancel={() => { setEditingId(null); setEditForm({}); }}
+            />
+          )}
 
-          {/* Skills (rendered with same SectionList) */}
-          <SectionList
-            title="Skills"
-            sectionKey="skills"
-            currentData={currentData}
-            editingId={editingId}
-            editForm={editForm}
-            onEdit={handleEdit}
-            onSaveEdit={handleSaveEdit}
-            onDelete={handleDeleteItem}
-            onAdd={handleAddItem}
-            onInputChange={handleInputChange}
-            onCancel={() => { setEditingId(null); setEditForm({}); }}
-          />
+          {/* Skills */}
+          {activeTab === 'skills' && (
+            <SectionList
+              title="Skills"
+              sectionKey="skills"
+              currentData={currentData}
+              editingId={editingId}
+              editForm={editForm}
+              onEdit={handleEdit}
+              onSaveEdit={handleSaveEdit}
+              onDelete={handleDeleteItem}
+              onAdd={handleAddItem}
+              onInputChange={handleInputChange}
+              onCancel={() => { setEditingId(null); setEditForm({}); }}
+            />
+          )}
 
         </div>
 

@@ -3,6 +3,7 @@ import Logo2 from '../../Assets/Logo2.png';
 import data from './data';
 import Skeleton from 'react-loading-skeleton';
 import Profile from '../../Assets/profile.jpeg';
+import CV from '../../Assets/CV.pdf';
 import { database } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 
@@ -299,7 +300,9 @@ class Cv extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <button onClick={() => { window.location.href = cvData.cvLink }} className="text-center button" > <i className="fa fa-download">  </i>  Download My CV </button>
+                                    <a href={CV} download className="text-center button" rel="noopener noreferrer">
+                                        <i className="fa fa-download">  </i> Download My CV
+                                    </a>
                                 </div>
                             </div>
 
