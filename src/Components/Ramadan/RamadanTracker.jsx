@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { getRamadanData, saveRamadanData, updateRamadanDay } from '../../services/ramadanService';
+import { getRamadanData, saveRamadanData, updateRamadanDay } from '../../services/firebaseService';
 import './RamadanTracker.css';
 
 const createDates = () => {
@@ -10,9 +10,10 @@ const createDates = () => {
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
     const dd = String(d.getDate()).padStart(2, '0');
     const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const label = `${dd}/${mm}`;
-    const key = `${dd}-${mm}`; // Firebase keys cannot contain '/'
-    list.push({ key, label });
+    list.push({
+      key: `${dd}-${mm}`,
+      label: `${dd}/${mm}`,
+    });
   }
 
   return list;
@@ -44,16 +45,17 @@ const RamadanTracker = () => {
   const left = total - doneCount;
   const percent = Math.round((doneCount / total) * 100);
 
-  const toggleDay = async (dateObj) => {
-    const { key } = dateObj;
+  const toggleDay = async ({ key }) => {
     const next = !days[key];
     setDays((prev) => ({ ...prev, [key]: next }));
     setSaving(true);
+
     const ok = await updateRamadanDay(key, next);
     if (!ok) {
       setDays((prev) => ({ ...prev, [key]: !next }));
       alert('Could not save to Firebase. Check rules/connection.');
     }
+
     setSaving(false);
   };
 
@@ -65,53 +67,84 @@ const RamadanTracker = () => {
 
     setDays(payload);
     setSaving(true);
+
     const ok = await saveRamadanData(payload);
     if (!ok) {
       alert('Could not save to Firebase. Check rules/connection.');
     }
+
     setSaving(false);
   };
 
   return (
-    <div className="ramadan-wrap">
-      <div className="ramadan-card">
-        <div className="ramadan-head">
-          <div>
-            <h2>Ramadan Tracker</h2>
-            <p>Synced with Firebase • range 19/02 → 19/03</p>
-          </div>
-          <div className="ramadan-buttons">
-            <button onClick={() => markAll(true)}>Mark all ✅</button>
-            <button className="danger" onClick={() => markAll(false)}>Clear all</button>
-          </div>
-        </div>
+    <div className="container py-3 py-md-4 ramadan-page">
+      <div className="card ramadan-card shadow-sm">
+        <div className="card-body p-3 p-md-4">
+          <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+            <div>
+              <h2 className="h4 mb-1 text-white">Ramadan Tracker</h2>
+              <p className="mb-0 text-light small">Synced with Firebase • range 19/02 → 19/03</p>
+            </div>
 
-        <div className="ramadan-stats">
-          <div><strong>{total}</strong><span>Total</span></div>
-          <div><strong>{doneCount}</strong><span>Done</span></div>
-          <div><strong>{left}</strong><span>Left</span></div>
-          <div><strong>{percent}%</strong><span>Progress</span></div>
-        </div>
-
-        {loading ? (
-          <div className="ramadan-loading">Loading…</div>
-        ) : (
-          <div className="ramadan-grid">
-            {dates.map((d) => (
-              <button
-                key={d.key}
-                className={`day-btn ${days[d.key] ? 'done' : ''}`}
-                onClick={() => toggleDay(d)}
-              >
-                <span>{d.label}</span>
-                <span>{days[d.key] ? '✅' : '⬜'}</span>
+            <div className="d-grid d-sm-flex gap-2 w-100 w-md-auto">
+              <button type="button" className="btn btn-success" onClick={() => markAll(true)}>
+                Mark all ✅
               </button>
-            ))}
+              <button type="button" className="btn btn-outline-danger" onClick={() => markAll(false)}>
+                Clear all
+              </button>
+            </div>
           </div>
-        )}
 
-        <div className="ramadan-foot">
-          <span>{saving ? 'Saving to Firebase…' : 'All changes synced.'}</span>
+          <div className="row g-2 g-md-3 mb-3">
+            <div className="col-6 col-md-3">
+              <div className="stat-box rounded p-2 p-md-3 h-100">
+                <div className="h5 mb-0 text-white">{total}</div>
+                <small className="text-light">Total</small>
+              </div>
+            </div>
+            <div className="col-6 col-md-3">
+              <div className="stat-box rounded p-2 p-md-3 h-100">
+                <div className="h5 mb-0 text-white">{doneCount}</div>
+                <small className="text-light">Done</small>
+              </div>
+            </div>
+            <div className="col-6 col-md-3">
+              <div className="stat-box rounded p-2 p-md-3 h-100">
+                <div className="h5 mb-0 text-white">{left}</div>
+                <small className="text-light">Left</small>
+              </div>
+            </div>
+            <div className="col-6 col-md-3">
+              <div className="stat-box rounded p-2 p-md-3 h-100">
+                <div className="h5 mb-0 text-white">{percent}%</div>
+                <small className="text-light">Progress</small>
+              </div>
+            </div>
+          </div>
+
+          {loading ? (
+            <div className="text-light">Loading…</div>
+          ) : (
+            <div className="row g-2">
+              {dates.map((d) => (
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2" key={d.key}>
+                  <button
+                    type="button"
+                    className={`btn w-100 day-btn ${days[d.key] ? 'done' : ''}`}
+                    onClick={() => toggleDay(d)}
+                  >
+                    <span>{d.label}</span>
+                    <span>{days[d.key] ? '✅' : '⬜'}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-3 small text-light">
+            {saving ? 'Saving to Firebase…' : 'All changes synced.'}
+          </div>
         </div>
       </div>
     </div>
