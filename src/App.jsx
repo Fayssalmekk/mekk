@@ -86,17 +86,13 @@ class App extends Component {
             </Route>
 
             <Route exact path="/ramadan">
-
-              <Banner />
-              <NavBar2 />
               <RamadanTracker />
-
             </Route>
 
 
 
           </Switch>
-          {window.location.pathname !== '/admin0' && <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>}
+          {window.location.pathname !== '/admin0' && window.location.pathname !== '/ramadan' && <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>}
         </div>
 
       </Router>

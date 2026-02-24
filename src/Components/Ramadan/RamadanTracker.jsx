@@ -10,7 +10,9 @@ const createDates = () => {
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
     const dd = String(d.getDate()).padStart(2, '0');
     const mm = String(d.getMonth() + 1).padStart(2, '0');
-    list.push(`${dd}/${mm}`);
+    const label = `${dd}/${mm}`;
+    const key = `${dd}-${mm}`; // Firebase keys cannot contain '/'
+    list.push({ key, label });
   }
 
   return list;
@@ -28,7 +30,7 @@ const RamadanTracker = () => {
       const fromDb = await getRamadanData();
       const base = {};
       dates.forEach((d) => {
-        base[d] = !!(fromDb && fromDb.days && fromDb.days[d]);
+        base[d.key] = !!(fromDb && fromDb.days && fromDb.days[d.key]);
       });
       setDays(base);
       setLoading(false);
@@ -37,18 +39,19 @@ const RamadanTracker = () => {
     load();
   }, []);
 
-  const doneCount = useMemo(() => dates.filter((d) => days[d]).length, [days]);
+  const doneCount = useMemo(() => dates.filter((d) => days[d.key]).length, [days]);
   const total = dates.length;
   const left = total - doneCount;
   const percent = Math.round((doneCount / total) * 100);
 
-  const toggleDay = async (d) => {
-    const next = !days[d];
-    setDays((prev) => ({ ...prev, [d]: next }));
+  const toggleDay = async (dateObj) => {
+    const { key } = dateObj;
+    const next = !days[key];
+    setDays((prev) => ({ ...prev, [key]: next }));
     setSaving(true);
-    const ok = await updateRamadanDay(d, next);
+    const ok = await updateRamadanDay(key, next);
     if (!ok) {
-      setDays((prev) => ({ ...prev, [d]: !next }));
+      setDays((prev) => ({ ...prev, [key]: !next }));
       alert('Could not save to Firebase. Check rules/connection.');
     }
     setSaving(false);
@@ -57,7 +60,7 @@ const RamadanTracker = () => {
   const markAll = async (value) => {
     const payload = {};
     dates.forEach((d) => {
-      payload[d] = value;
+      payload[d.key] = value;
     });
 
     setDays(payload);
@@ -96,12 +99,12 @@ const RamadanTracker = () => {
           <div className="ramadan-grid">
             {dates.map((d) => (
               <button
-                key={d}
-                className={`day-btn ${days[d] ? 'done' : ''}`}
+                key={d.key}
+                className={`day-btn ${days[d.key] ? 'done' : ''}`}
                 onClick={() => toggleDay(d)}
               >
-                <span>{d}</span>
-                <span>{days[d] ? '✅' : '⬜'}</span>
+                <span>{d.label}</span>
+                <span>{days[d.key] ? '✅' : '⬜'}</span>
               </button>
             ))}
           </div>
