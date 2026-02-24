@@ -7,6 +7,7 @@ import Gall3 from './Components/Gall/Gall3';
 import Gall4 from './Components/Gall/Gall4';
 import AdminPanel from './Components/Cv/AdminPanel';
 import ITServices from './Components/ITServices/ITServices';
+import RamadanTracker from './Components/Ramadan/RamadanTracker';
 import "./index.css"
 
 
@@ -81,6 +82,14 @@ class App extends Component {
               <Banner />
               <NavBar2 />
               <ITServices/>
+
+            </Route>
+
+            <Route exact path="/ramadan">
+
+              <Banner />
+              <NavBar2 />
+              <RamadanTracker />
 
             </Route>
 

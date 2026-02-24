@@ -47,6 +47,7 @@ class NavBar2 extends Component {
             <NavLink className="link" activeClassName="active_link" to="/prints"> <i className="ico pl-2 fa fa-map-o"></i> <span className="block">Prints</span></NavLink>
             <NavLink className="link" activeClassName="active_link" to="/logos"> <i className="ico pl-2 fa fa-flag"></i> <span className="block">Logos</span></NavLink>
             <NavLink className="link" activeClassName="active_link" to="/artworks"> <i className="ico pl-2 fa fa-paint-brush"> </i><span className="block">Artworks</span></NavLink>
+            <NavLink className="link" activeClassName="active_link" to="/ramadan"> <i className="ico pl-2 fa fa-calendar"></i><span className="block">Ramadan</span></NavLink>
 
 
           </ul>
