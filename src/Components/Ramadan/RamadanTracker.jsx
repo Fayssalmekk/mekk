@@ -19,6 +19,7 @@ const createDates = () => {
   return list;
 };
 
+
 const dates = createDates();
 
 const RamadanTracker = () => {
