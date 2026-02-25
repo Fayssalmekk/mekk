@@ -81,7 +81,7 @@ const ThemeLogo = () => {
     <img 
       className="img-fluid main-logo" 
       alt="profile" 
-      src={isDarkMode ? mainLogo : Logo2} 
+      src={mainLogo} 
     />
   );
 };
