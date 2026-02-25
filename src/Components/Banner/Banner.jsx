@@ -1,6 +1,7 @@
 import "./Banner.css";
 import React, { Component, useState, useEffect, useContext } from "react";
 import mainLogo from "../../Assets/mainLogo.png";
+import Logo2 from "../../Assets/Logo2.png";
 import { NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../ThemeContext';
 
@@ -11,15 +12,15 @@ const TypingAnimation = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   
-  const textArray = [
-    "FAYSSAL EL MEKKAOUI.",
-    "a GRAPHIC DESIGNER.",
-    "a DEVOPS ENGINEER.",
-    "a UI/UX DESIGNER.",
-    "a CLOUD ENTHUSIAST."
-  ];
-
   useEffect(() => {
+    const textArray = [
+      "FAYSSAL EL MEKKAOUI.",
+      "a GRAPHIC DESIGNER.",
+      "a DEVOPS ENGINEER.",
+      "a UI/UX DESIGNER.",
+      "a CLOUD ENTHUSIAST."
+    ];
+    
     const currentText = textArray[loopNum % textArray.length];
     
     const timer = setTimeout(() => {
@@ -45,7 +46,7 @@ const TypingAnimation = () => {
     }, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum]);
+  }, [displayText, isDeleting, loopNum, typingSpeed]);
 
   return (
     <span className="typing-text">{displayText}</span>
@@ -73,6 +74,19 @@ const ThemeToggle = () => {
   );
 };
 
+// Theme-aware Logo
+const ThemeLogo = () => {
+  const { isDarkMode } = useContext(ThemeContext);
+  
+  return (
+    <img 
+      className="img-fluid main-logo" 
+      alt="profile" 
+      src={isDarkMode ? mainLogo : Logo2} 
+    />
+  );
+};
+
 class Banner extends Component {
   render() {
     return (
@@ -83,7 +97,7 @@ class Banner extends Component {
           <div className="container">
             <div className="text-center logo-container">
               <NavLink to="/about-me">
-                <img className="img-fluid main-logo" alt="profile" src={mainLogo} />
+                <ThemeLogo />
               </NavLink>
               <h1 className="txt1">Welcome To My Portfolio</h1>
 
