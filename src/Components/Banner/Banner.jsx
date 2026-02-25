@@ -12,6 +12,7 @@ const TypingAnimation = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   
+
   useEffect(() => {
     const textArray = [
       "FAYSSAL EL MEKKAOUI.",
@@ -19,38 +20,40 @@ const TypingAnimation = () => {
       "a CLOUD ENTHUSIAST.",
       "a GRAPHIC DESIGNER."
     ];
-    
-    const currentText = textArray[loopNum % textArray.length];
-    
-    const timer = setTimeout(() => {
+
+    const handleTyping = () => {
+      const currentText = textArray[loopNum % textArray.length];
+
       if (!isDeleting) {
-        // Typing
+        // Typing forward
         setDisplayText(currentText.substring(0, displayText.length + 1));
-        setTypingSpeed(100 + Math.random() * 50); // Random speed for realism
-        
-        if (displayText === currentText) {
+
+        if (displayText.length + 1 === currentText.length) {
           // Pause at end before deleting
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         // Deleting
         setDisplayText(currentText.substring(0, displayText.length - 1));
-        setTypingSpeed(50 + Math.random() * 30);
-        
-        if (displayText === "") {
+
+        if (displayText.length === 0) {
           setIsDeleting(false);
           setLoopNum(loopNum + 1);
         }
       }
-    }, typingSpeed);
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+
+    // Adjust typing speed for realism
+    setTypingSpeed(isDeleting ? 50 + Math.random() * 30 : 100 + Math.random() * 50);
 
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum, typingSpeed]);
+  }, [displayText, isDeleting, loopNum]);
 
-  return (
-    <span className="typing-text">{displayText}</span>
-  );
+  return <span className="typing-text">{displayText}</span>;
 };
+
 
 // Theme Toggle Button Component
 const ThemeToggle = () => {

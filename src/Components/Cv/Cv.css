@@ -17,7 +17,7 @@
 }
 
 .cv-container {
-  max-width: 1100px;
+  max-width: 130vh;
   padding: 0 20px;
 }
 
@@ -142,7 +142,7 @@
 /* CV Body Layout */
 .cv-body {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 350px;
   gap: 24px;
   padding-bottom: 40px;
 }
@@ -162,7 +162,7 @@
 .cv-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
 /* CV Sections */
