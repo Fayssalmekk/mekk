@@ -62,7 +62,7 @@ class App extends Component {
                 <RamadanTracker />
               </Route>
             </Switch>
-            {window.location.pathname !== '/admin0' && window.location.pathname !== '/ramadan' && <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2021</div>}
+            {window.location.pathname !== '/admin0' && window.location.pathname !== '/ramadan' && <div className="text-muted mt-4 mb-4"> Faymekk.ml &#169; 2026</div>}
           </div>
         </Router>
       </ThemeProvider>

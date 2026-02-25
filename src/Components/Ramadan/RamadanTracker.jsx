@@ -79,7 +79,7 @@ const RamadanTracker = () => {
 
   return (
     <div className="container py-3 py-md-4 ramadan-page">
-      <div className="card ramadan-card shadow-sm">
+      <div className=" ramadan-card shadow-sm">
         <div className="card-body p-3 p-md-4">
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
             <div>

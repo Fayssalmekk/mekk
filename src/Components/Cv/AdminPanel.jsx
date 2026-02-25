@@ -5,12 +5,12 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getCVData, saveCVData } from '../../services/firebaseService';
 import { auth } from '../../firebase';
-import {  signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 // Optional admin email restriction
 const ADMIN_EMAIL = process.env.REACT_APP_ADMIN_EMAIL || null;
 
-const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}, fullpage = false }) => {
+const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => { }, fullpage = false }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   // Removed email/password state, only Google auth
   const [currentData, setCurrentData] = useState(null);
@@ -174,7 +174,7 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
     const updated = { ...currentData };
     if (!updated.itServices) updated.itServices = { tools: [], certifications: [] };
     if (!updated.itServices.certifications) updated.itServices.certifications = [];
-    updated.itServices.certifications.push({ id: Date.now(), name: 'New Certification', issuer: '', year: new Date().getFullYear() });
+    updated.itServices.certifications.push({ id: Date.now(), name: 'New Certification', issuer: '', year: new Date().getFullYear(), image:'' });
     saveData(updated);
   };
 
@@ -379,6 +379,10 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
                           <input className="form-control" value={editForm.name || ''} onChange={(e) => handleInputChange(e, 'name')} />
                         </div>
                         <div className="mb-2">
+                          <label className="form-label">Certification Image URL</label>
+                          <input className="form-control" value={editForm.image || ''} onChange={(e) => handleInputChange(e, 'image')} />
+                        </div>
+                        <div className="mb-2">
                           <label className="form-label">Issuer</label>
                           <input className="form-control" value={editForm.issuer || ''} onChange={(e) => handleInputChange(e, 'issuer')} />
                         </div>
@@ -386,6 +390,7 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
                           <label className="form-label">Year</label>
                           <input className="form-control" type="number" value={editForm.year || ''} onChange={(e) => handleInputChange(e, 'year')} />
                         </div>
+
                         <div>
                           <button className="btn btn-primary btn-sm me-2" onClick={() => handleSaveCertification(index)}>Save</button>
                           <button className="btn btn-secondary btn-sm" onClick={() => { setEditingId(null); setEditForm({}); }}>Cancel</button>
@@ -397,6 +402,7 @@ const AdminPanel = ({ onClose, data: initialData = null, onDataUpdate = () => {}
                           <h5 className="mb-2">{cert.name}</h5>
                           <p className="text-muted mb-1">{cert.issuer}</p>
                           <small className="text-secondary">{cert.year}</small>
+                          <small className="text-secondary">{cert.image}</small>
                         </div>
                         <div className="btn-group-sm">
                           <button className="btn btn-warning btn-sm me-1" onClick={() => handleEditCertification(index)}><i className="fa fa-edit"></i></button>
@@ -531,13 +537,13 @@ function SectionList({ title, sectionKey, currentData, editingId, editForm, onEd
                     {Object.keys(item).map((key) => (
                       <div key={key} className="mb-2">
                         <label className="form-label text-capitalize">{key}</label>
-                          {key === 'description' ? (
-                            <textarea className="form-control" rows="3" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
-                          ) : key === 'years' ? (
-                            <input className="form-control" type="text" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
-                          ) : (
-                            <input className="form-control" type={key.includes('year') || key === 'level' ? 'number' : 'text'} value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
-                          )}
+                        {key === 'description' ? (
+                          <textarea className="form-control" rows="3" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                        ) : key === 'years' ? (
+                          <input className="form-control" type="text" value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                        ) : (
+                          <input className="form-control" type={key.includes('year') || key === 'level' ? 'number' : 'text'} value={editForm[key] || ''} onChange={(e) => onInputChange(e, key)} />
+                        )}
                       </div>
                     ))}
                     <div>

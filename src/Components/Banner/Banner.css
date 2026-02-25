@@ -126,10 +126,11 @@
 
 .cursor {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 300;
   animation: blink 0.8s infinite;
   margin-left: 2px;
+  margin-top: 14px;
 }
 
 @keyframes blink {

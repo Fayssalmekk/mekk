@@ -49,8 +49,6 @@ class ITServices extends React.Component {
         return (
             <div className="it-services-page animation">
                 <div className="it-container">
-              
-                    
                     <div className="it-section">
                         <h2 className="it-section-title">My technical stack:</h2>
                         <div className="it-tools-grid">
@@ -85,8 +83,6 @@ class ITServices extends React.Component {
         return (
             <div className="it-services-page animation">
                 <div className="it-container">
-                   
-                    
                     <div className="it-section">
                         <h2 className="it-section-title">My technical stack:</h2>
                         <div className="it-tools-grid">
@@ -108,7 +104,17 @@ class ITServices extends React.Component {
                                 {itServices.certifications.map((cert, index) => (
                                     <div key={cert.id || index} className="it-cert-card">
                                         <div className="it-cert-badge">
-                                            <i className="fa fa-certificate"></i>
+                                                <i className="fa fa-certificate"></i>
+                                        </div>
+                                        <div className="div">
+                                                                                        {cert.image ? (
+                                                <img
+
+                                                    src={cert.image}
+                                                    alt="CKA"
+                                                    style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '16px', marginTop: '-20px' }}
+                                                />
+                                            ) : <i></i>}
                                         </div>
                                         <h3 className="it-cert-name">{cert.name}</h3>
                                         <p className="it-cert-issuer">{cert.issuer}</p>
