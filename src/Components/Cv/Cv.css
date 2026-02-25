@@ -1,29 +1,215 @@
+/* CV Page - Theme-aware Styles */
+.cv {
+  margin-top: 100px;
+  animation: move01 0.6s ease-out;
+}
+
+.cv-container {
+  background-color: transparent;
+}
+
+/* CV Card Styling */
+.cv-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+  border-radius: 16px !important;
+}
+
+.cv-card:hover {
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.cv-header-card {
+  border-radius: 20px !important;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%) !important;
+}
+
+/* Profile Image */
+.profile-img {
+  border: 4px solid var(--accent-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* Name and Title */
 .name {
-  color: #4a2a96;
+  color: var(--accent-primary);
   font-size: 37px;
   font-weight: 700;
 }
 
-.text-muted {
-  font-weight: 600;
+.job {
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+/* Social Buttons */
+.social-btns {
+  gap: 8px;
+}
+
+.social-btn {
+  width: 44px !important;
+  height: 44px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.github-btn:hover {
+  background-color: #333 !important;
+}
+
+.linkedin-btn:hover {
+  background-color: #0077b5 !important;
+}
+
+.instagram-btn:hover {
+  background-color: #e4405f !important;
+}
+
+.facebook-btn:hover {
+  background-color: #1877f2 !important;
+}
+
+/* CV Logo */
+.cv-logo {
+  max-height: 100px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.cv-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Section Titles */
+.cv-section-title {
+  color: var(--accent-primary) !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-section-title i {
+  font-size: 0.8em;
+}
+
+/* Text Styling */
+.cv-text {
+  color: var(--text-primary);
+  line-height: 1.7;
 }
 
 .txthead {
   font-weight: 700;
+  color: var(--text-primary);
 }
 
-.button {
-  width: 100%;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 20px;
+.txthead a {
+  color: var(--accent-primary);
+}
+
+.txthead a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Divider */
+.cv-divider {
+  border-color: var(--border-color);
+}
+
+/* Contact Items */
+.contact-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.contact-icon {
+  color: var(--accent-primary);
+  width: 20px;
+  text-align: center;
+}
+
+/* Skills Border */
+.skills-border {
+  border-color: var(--accent-primary) !important;
+}
+
+/* Language Stars */
+.lang-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
 }
 
 .stars {
-  position: absolute;
-  left: 40%;
+  color: #ffc107;
 }
 
+/* Download Button */
+.download-btn {
+  width: 100%;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 42, 150, 0.4);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+[data-theme="dark"] .download-btn:hover {
+  box-shadow: 0 8px 25px rgba(161, 103, 218, 0.4);
+}
+
+/* Animations */
+@keyframes floating {
+  from {
+    transform: translate(200px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.animation {
+  animation: floating 0.6s ease-out;
+}
+
+/* Responsive */
 @media (max-width: 1000px) {
   .name {
     font-size: 30px;
@@ -33,51 +219,39 @@
     margin-bottom: 20px;
   }
   .stars {
-    left: 70%;
+    position: relative;
+    left: 0;
+  }
+  .cv-logo {
+    max-height: 80px;
   }
 }
 
 @media (max-width: 500px) {
   .name {
-    font-size: 20px;
+    font-size: 24px;
   }
   .job {
-    font-size: 11px;
-    margin-bottom: 20px;
+    font-size: 12px;
+    margin-bottom: 15px;
   }
-  .stars {
-    left: 70%;
+  .cv-card {
+    padding: 15px !important;
   }
-}
-
-.cv {
-  margin-top: 100px;
-  animation: move01 0.6s linear;
-}
-
-.card-title {
-  font-weight: 600;
-  color: #4a2a96;
+  .cv-header-card .card-body {
+    padding: 20px !important;
+  }
+  .profile-img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .cv-logo {
+    max-height: 60px;
+  }
 }
 
 @media (max-width: 600px) {
-  .card-title {
-    font-size: 28px;
-    text-align: center;
+  .cv-section-title {
+    font-size: 24px !important;
   }
 }
-
-@keyframes floating {
-    from {
-      transform: translate(200px, 0);
-      opacity: 0;
-    }
-  
-    to {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-  }
-  .animation {
-    animation: floating 1s linear 0s;
-  }
