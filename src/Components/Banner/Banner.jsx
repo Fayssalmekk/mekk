@@ -15,10 +15,9 @@ const TypingAnimation = () => {
   useEffect(() => {
     const textArray = [
       "FAYSSAL EL MEKKAOUI.",
-      "a GRAPHIC DESIGNER.",
-      "a DEVOPS ENGINEER.",
-      "a UI/UX DESIGNER.",
-      "a CLOUD ENTHUSIAST."
+      "a DEVOPS/Cloud ENGINEER.",
+      "a CLOUD ENTHUSIAST.",
+      "a GRAPHIC DESIGNER."
     ];
     
     const currentText = textArray[loopNum % textArray.length];

@@ -17,11 +17,11 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg, 
-    #667eea 0%, 
-    #764ba2 25%, 
-    #6B8DD6 50%, 
-    #8E37D7 75%, 
-    #4a2a96 100%);
+    #412c50 0%, 
+    #16213e 25%, 
+    #0f0f1a 50%, 
+    #34345d 75%, 
+    #1e1e35 100%);
   background-size: 400% 400%;
   animation: gradientFlow 15s ease infinite;
   z-index: 0;
@@ -47,7 +47,7 @@
   z-index: 1;
 }
 
-/* Dark mode banner */
+/* Dark mode banner
 [data-theme="dark"] .banner-gradient {
   background: linear-gradient(135deg, 
     #1a1a2e 0%, 
@@ -63,7 +63,7 @@
     radial-gradient(circle at 20% 80%, rgba(161, 103, 218, 0.2) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(199, 125, 255, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(161, 103, 218, 0.1) 0%, transparent 40%);
-}
+} */
 
 .container {
   position: relative;
