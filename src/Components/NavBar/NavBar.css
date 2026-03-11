@@ -1,18 +1,19 @@
 /* Sentinel: zero-height trigger, placed just above navbar */
 .nav-sentinel {
+  z-index: 0;
   height: 0;
   width: 100%;
 }
 
 /* Placeholder: always in DOM, height controlled by JS — no mount/unmount gap */
 .nav-placeholder {
+    z-index: 1;
   transition: none; /* instant, no animation — prevents bounce */
 }
 
 /* Default: normal document flow */
 .navbar-modern {
-  position: relative;
-  z-index: 100;
+  z-index: 1;
   padding: 0;
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
@@ -25,6 +26,7 @@
 
 /* Stuck: fixed to top */
 .navbar-stuck {
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +35,7 @@
 }
 
 .nav-container {
-  max-width: 1200px;
+
   margin: 0 auto;
   padding: 12px 20px;
   display: flex;
